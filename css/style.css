@@ -1,0 +1,270 @@
+header {
+    background-color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    margin: 0;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+.title_eab_main {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.inicio_introduccion{
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    gap:  40px;
+}
+.texto_parrafo_inicio{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: gray;
+}
+.botones_introduccion {
+    margin-top: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+.botones_introduccion a {
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 15px;
+}
+.boton_introduccion_a {
+    background-color: #40e07d;
+    color: rgb(255, 255, 255);
+    border: 1px solid #40e07d;
+    transition: all 0.3s ease;
+}
+.boton_introduccion_a:hover {
+    background-color: #34c76b;
+    box-shadow: 0px 8px 20px rgba(64, 224, 125, 0.4);
+}
+.boton_introduccion_b {
+    background-color: #acacac;
+    color: rgb(255, 255, 255);
+    border: 1px solid #acacac;
+    transition: all 0.3s ease;
+}
+.boton_introduccion_b:hover {
+    background-color: #969696;
+    box-shadow: 0px 50px 300px rgba(0,0,0,0.1);
+}
+.comida_index {
+    border-radius: 20px;
+    text-align: right;
+    width: 1000px;
+    height: auto;
+} 
+
+/*aqui estan mis aportes del css formulario y card*/
+body {
+    background-color: rgb(248, 246, 246);
+}
+nav a {
+    text-decoration: none;
+    margin: 10px;
+    font-weight: 500;
+    color: rgb(92, 92, 92);
+    transition: all 0.3s ease;
+}
+nav a:hover {
+    color: limegreen;
+}
+#reseñas {
+    width: 100%;
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+#reseñas h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #00a896;
+}
+
+.contenedor-cartas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+}
+
+.card {
+    background-color: #00a896;
+    width: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: left; 
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.foto-perfil {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.estrella img {
+    width: 15px;
+    height: auto;
+}
+
+
+.foto-comida {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; 
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 14px;
+    color: white;
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 15px !important;
+}
+
+.card cite {
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+    font-style: normal;
+    display: block;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 10px;
+}
+#contacto {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+.form-container {
+    width: 50%;
+    background-color: #ffffff;
+    padding: 35px;
+    border: 2px solid #00a896;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #00a896;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 120px;
+    resize: none;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-submit {
+    background-color: #00a896;
+    color: white;
+}
+
+.btn-reset {
+    background-color: #e0e0e0;
+    color: #333;
+}.btn-reset:hover{
+    background-color: #cccccc;
+}.btn-submit:hover{
+    background-color:#34c76b;
+}
+
+.footer {
+    background-color: #f7fcf8;
+    color: #333;
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.copyright {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon img:hover {
+    transform: scale(1.2);
+}
