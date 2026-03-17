@@ -62,7 +62,7 @@ header {
     height: auto;
 } 
 
-/*aqui estan mis aportes del css formulario y card*/
+
 body {
     background-color: rgb(248, 246, 246);
 }
@@ -76,6 +76,7 @@ nav a {
 nav a:hover {
     color: limegreen;
 }
+/*reseñas- card*/
 #reseñas {
     width: 100%;
     padding: 50px 20px;
@@ -158,6 +159,7 @@ nav a:hover {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     padding-top: 10px;
 }
+/*formulario-contactos*/
 #contacto {
     display: flex;
     justify-content: center;
@@ -232,6 +234,126 @@ button {
     background-color: #cccccc;
 }.btn-submit:hover{
     background-color:#34c76b;
+}.banner-comida {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+/*inicio, imagenes de comidas*/
+.banner-comida div {
+    flex: 1;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.banner-comida img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.3s ease;
+}
+
+.banner-comida img:hover {
+    transform: scale(1.05);
+}
+/*login-registro*/
+#login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.login-box {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+
+input[type="radio"] {
+    display: none;
+}
+
+.tabs-header {
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+}
+
+.tab-label {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #888;
+    transition: 0.3s;
+}
+
+
+#radio-login:checked ~ .tabs-header .tab-label:nth-child(1),
+#radio-registro:checked ~ .tabs-header .tab-label:nth-child(2) {
+    color: #00a896;
+    border-bottom: 3px solid #00a896;
+}
+
+
+.auth-form {
+    display: none;
+    flex-direction: column;
+}
+
+#radio-login:checked ~ .forms-container #login-form {
+    display: flex;
+}
+
+#radio-registro:checked ~ .forms-container #register-form {
+    display: flex;
+}
+
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.main-btn {
+    background-color: #00a896;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.forgot-link {
+    display: block;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #00a896;
+    text-decoration: none;
 }
 
 .footer {
