@@ -1,69 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Eat and Bite ¡Vive saludable!</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+<!-- 
+  ------------------------------
+  PARTE HEADER E INTRODUCCIÓN
+  ENCARGADO: SAMUEL
+  COMENTARIOS: 
+  - ESENCIAL PARA TODA LA PAGINA
+  ------------------------------
+-->
     <header>
-        <img src="img/eatandbite_temp.png" alt="eatandbite" width="100px">
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="#nosotros">Nosotros</a> <a href="#productos">Productos</a>
-            <a href="#galeria">Galería</a>
-            <a href="reseña.html">Reseñas</a>
-            <a href="contacto.html">Contacto</a>
-            <a href="login.html" class="login">Login</a>
-        </nav>
+      <img src="img/eatandbite_temp.png" alt="eatandbite" width="100px" />
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="#nosotros">Nosotros</a> <a href="#productos">Productos</a>
+        <a href="#galeria">Galería</a>
+        <a href="reseña.html">Reseñas</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="login.html" class="login">
+        <img src="img/login_icon.png" alt="login_icon"/>Login</a>
+      </nav>
     </header>
     <main>
-        <section id="inicio">
-            <div class="inicio_introduccion">
-                <div class="texto_introduccion">
-                <h1 class="title_eab_main">¡Come saludable, vive imparable!</h1>
-                <p class="texto_parrafo_inicio">Transforma tu estilo de vida con planes de nutrición personalizados y comida saludables entregadas directamente a tu puerta. 
-                    Ahorra tiempo mientras mejoras tu salud.</p>
-                    <div class="botones_introduccion">
-                        <a href="" class="boton_introduccion_a">Ver productos</a>
-                        <a href="" class="boton_introduccion_b">Sobre nosotros</a>
-                </div>
+      <section id="inicio">
+        <div class="inicio_introduccion">
+          <div class="texto_introduccion">
+            <h1 class="title_eab_main">¡Come saludable, vive imparable!</h1>
+            <p class="texto_parrafo_inicio"> Transforma tu estilo de vida con planes de nutrición personalizados y comida saludables entregadas directamente a tu puerta. Ahorra tiempo mientras mejoras tu salud.</p>
+            <div class="botones_introduccion">
+              <a href="" class="boton_introduccion_a">Ver productos</a>
+              <a href="" class="boton_introduccion_b">Sobre nosotros</a>
             </div>
-            <img src="img/comida_saludable.jpg" alt="comida_index" class="comida_index">
+          </div>
+          <img src="img/comida_saludable.jpg" alt="comida_index" class="comida_index"/>
         </div>
-        </section>
-        <section class="banner-comida">
-            <div>
-                <img src="https://passionateaboutbaking.com/foodpicturesPAB/2023/01/Brocolli-Walnut-Soup-1000.jpg" alt="Bowl de ensalada saludable">
+      </section>
+<!-- 
+  ------------------------------
+  PARTE SOBRE NOSOTROS
+  ENCARGADO: JULI
+  COMENTARIOS: 
+  - N/A
+  ------------------------------
+-->
+      <section class="about-section" id="nosotros">
+        <div class="about-container">
+          <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600" alt="Comida saludable"/>
+          </div>
+          <div class="about-text">
+            <h2>Sobre Eat & Bite</h2>
+            <p>En <strong>Eat & Bite</strong> creemos que comer saludable no debe ser complicado. Nuestro compromiso es ofrecer platos nutritivos con ingredientes frescos, promoviendo un estilo de vida activo y equilibrado.</p>
+            <p>Fomentamos una alimentación consciente mediante recetas diseñadas para aportar energía, bienestar y sabor en cada comida.</p>
+            <div class="about-features">
+              <div class="feature"><span>🌱</span> Ingredientes naturales</div>
+              <div class="feature"><span>🥗</span> Menús balanceados</div>
+              <div class="feature"><span>⚡</span> Energía para tu día</div>
             </div>
-            <div>
-                <img src="https://cornercoffeestore.com/wp-content/uploads/2020/09/vanilla-almond-coffee.jpg" alt="Plato de salmón con vegetales">
-            </div>
-            <div>
-                <img src="https://cdn.pixabay.com/photo/2016/11/29/13/02/cheese-1869708_1280.jpg" alt="Tostadas de aguacate y huevo">
-            </div>
-        </section>
-    </main>
-<footer class="footer">
-    <div class="footer-container">
-        <p class="copyright">
-            &copy; 2026 <strong>Eat and Bite</strong>. Todos los derechos reservados.
-        </p>
-        
-        <div class="social-links">
-            <a href="https://wa.me/573000000000" target="_blank" class="social-icon">
-                <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
-            </a>
-            <a href="https://instagram.com/eatandbite" target="_blank" class="social-icon">
-                <img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram">
-            </a>
-            <a href="https://facebook.com/eatandbite" target="_blank" class="social-icon">
-                <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook">
-            </a>
+          </div>
         </div>
-    </div>
-</footer>
 
-</body>
+        <section class="menu-section" id="menu">
+          <h2 class="menu-title">Nuestro Menú Saludable</h2>
+
+          <div class="menu-container">
+            <div class="menu-card">
+              <img
+                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500"
+                alt="Bowl Energético"
+              />
+              <div class="menu-info">
+                <h3>Bowl Energético</h3>
+                <p>Quinoa, pollo, aguacate y vegetales frescos.</p>
+                <span class="price">$18.000</span>
+              </div>
+            </div>
+
+            <div class="menu-card">
+              <img
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500"
+                alt="Ensalada Fit"
+              />
+              <div class="menu-info">
+                <h3>Ensalada Fit</h3>
+                <p>Mix de hojas verdes con proteína vegetal.</p>
+                <span class="price">$15.000</span>
+              </div>
+            </div>
+
+            <div class="menu-card">
+              <img
+                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500"
+                alt="Wrap Integral"
+              />
+              <div class="menu-info">
+                <h3>Wrap Integral</h3>
+                <p>Tortilla integral con pollo y vegetales.</p>
+                <span class="price">$16.000</span>
+              </div>
+            </div>
+
+            <div class="menu-card">
+              <img
+                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500"
+                alt="Protein Bowl"
+              />
+              <div class="menu-info">
+                <h3>Protein Bowl</h3>
+                <p>Arroz integral, salmón y vegetales.</p>
+                <span class="price">$20.000</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="banner-comida">
+        <div>
+          <img
+            src="https://passionateaboutbaking.com/foodpicturesPAB/2023/01/Brocolli-Walnut-Soup-1000.jpg"
+            alt="Bowl de ensalada saludable"
+          />
+        </div>
+        <div>
+          <img
+            src="https://cornercoffeestore.com/wp-content/uploads/2020/09/vanilla-almond-coffee.jpg"
+            alt="Plato de salmón con vegetales"
+          />
+        </div>
+        <div>
+          <img
+            src="https://cdn.pixabay.com/photo/2016/11/29/13/02/cheese-1869708_1280.jpg"
+            alt="Tostadas de aguacate y huevo"
+          />
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="copyright">
+          &copy; 2026 <strong>Eat and Bite</strong>. Todos los derechos
+          reservados.
+        </p>
+
+        <div class="social-links">
+          <a
+            href="https://wa.me/573000000000"
+            target="_blank"
+            class="social-icon"
+          >
+            <img
+              src="https://img.icons8.com/color/48/whatsapp--v1.png"
+              alt="WhatsApp"
+            />
+          </a>
+          <a
+            href="https://instagram.com/eatandbite"
+            target="_blank"
+            class="social-icon"
+          >
+            <img
+              src="https://img.icons8.com/color/48/instagram-new--v1.png"
+              alt="Instagram"
+            />
+          </a>
+          <a
+            href="https://facebook.com/eatandbite"
+            target="_blank"
+            class="social-icon"
+          >
+            <img
+              src="https://img.icons8.com/color/48/facebook-new.png"
+              alt="Facebook"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

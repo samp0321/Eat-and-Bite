@@ -1,16 +1,80 @@
+/*  ===============================
+    PARTE FOOTER
+    ENCARGADO: SAMUEL
+    COMENTARIOS: 
+    - ESENCIAL PARA TODA LA PAGINA
+    ==============================
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 header {
     background-color: #fff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    align-items: center;
-    margin: 0;
 
     position: sticky;
     top: 0;
+    z-index: 1000; /*Esto posiciona el header por encima y evita errores*/
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
 }
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 10px;
+    font-weight: 500;
+    color: rgb(92, 92, 92);
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #34c76b;
+}
+
+.login {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+
+    border: 1px solid #00a896;
+    border-radius: 5px;
+    background-color: #00a896;
+    padding: 8px 16px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.login:hover {
+    background-color: #34c76b;
+    color: #ffffff;
+    border-color: #028073;
+}
+
+.login img {
+    height: 20px;
+    width: auto;
+}
+
+/*  ===============================
+    PARTE INTRODUCCIÓN
+    ENCARGADO: SAMUEL
+    COMENTARIOS: 
+    - FALTA ARREGLAR BOTONES AL
+    TENER LA PAGINA REDUCIDA
+    ==============================
+*/
+
 .title_eab_main {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -61,33 +125,140 @@ header {
     text-align: right;
     width: 1000px;
     height: auto;
-} 
+}
+
+/*  ===============================
+    PARTE BODY
+    ENCARGADO: SAMUEL
+    COMENTARIOS: 
+    - ESENCIAL PARA TODA LA PAGINA
+    ==============================
+*/
+
 body {
     background-color: rgb(248, 246, 246);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-nav a {
-    text-decoration: none;
-    margin: 10px;
-    font-weight: 500;
-    color: rgb(92, 92, 92);
-    transition: all 0.3s ease;
+
+/* =========================
+   SECCION NOSOTROS
+========================= */
+
+.about-section{
+    padding:60px 10%;
+    background:white;
 }
-nav a:hover {
-    color: rgb(147, 199, 147);
+
+.about-container{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    flex-wrap:wrap;
 }
-.login {
-    border: 1px solid #00a896;
-    border-radius: 5px;
-    background-color: #00a896;
-    padding: 8px 16px;
-    color: #ffffff;
-    transition: all 0.3 ease;
+
+.about-image img{
+    width:100%;
+    max-width:400px;
+    border-radius:15px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
 }
-.login:hover {
-    background-color: #34c76b;
-    color: #ffffff;
-    border-color: #028073;
+
+.about-text{
+    flex:1;
 }
+
+.about-text p{
+    margin-bottom:15px;
+    line-height:1.6;
+}
+
+/* FEATURES */
+.about-features{
+    margin-top:20px;
+}
+
+.feature{
+    margin-bottom:10px;
+    font-weight:500;
+}
+
+.feature span{
+    margin-right:8px;
+}
+
+/* =========================
+   MENU / GALERIA
+========================= */
+
+.menu-section{
+    padding:60px 10%;
+    background:#f0fdf4;
+    text-align:center;
+}
+
+.menu-title{
+    margin-bottom:40px;
+}
+
+/* GRID */
+.menu-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:25px;
+}
+
+/* TARJETAS */
+.menu-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.menu-card:hover{
+    transform:translateY(-5px);
+}
+
+/* IMAGEN */
+.menu-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+/* INFO */
+.menu-info{
+    padding:15px;
+    text-align:left;
+}
+
+.menu-info h3{
+    margin-bottom:8px;
+}
+
+.menu-info p{
+    font-size:0.9rem;
+    margin-bottom:10px;
+    color:#666;
+}
+
+.price{
+    font-weight:bold;
+    color:#16a34a;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width:768px){
+    .about-container{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
 
 /*reseñas- card*/
 #reseñas {
