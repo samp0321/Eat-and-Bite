@@ -21,7 +21,7 @@ header {
 
     position: sticky;
     top: 0;
-    z-index: 1000; /*Esto posiciona el header por encima y evita errores*/
+    z-index: 1000;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -75,8 +75,17 @@ nav a:hover {
     ==============================
 */
 
-.title_eab_main {
+.logo_introduccion {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 250px;
+    height: auto;
+}
+
+.titulo_introduccion {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
 }
 .inicio_introduccion{
     display: flex;
@@ -87,16 +96,21 @@ nav a:hover {
 .texto_parrafo_inicio{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: gray;
+    text-align: center;
 }
 .botones_introduccion {
     margin-top: 30px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 .botones_introduccion a {
     text-decoration: none;
-    padding: 12px;
+    padding: 12px 24px;
     border-radius: 15px;
+    display: inline-block;
 }
 .boton_introduccion_a {
     background-color: #40e07d;
@@ -117,7 +131,7 @@ nav a:hover {
 }
 .boton_introduccion_b:hover {
     background-color: #969696;
-    box-shadow: 0px 50px 300px rgba(0,0,0,0.1);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
     color: rgb(238, 238, 255);
 }
 .comida_index {
@@ -136,7 +150,7 @@ nav a:hover {
 */
 
 body {
-    background-color: rgb(248, 246, 246);
+    background: rgb(248, 246, 246);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -146,7 +160,7 @@ body {
 
 .about-section{
     padding:60px 10%;
-    background:white;
+    background: linear-gradient(to bottom, rgb(248, 246, 246), white);
 }
 
 .about-container{
@@ -191,9 +205,9 @@ body {
 ========================= */
 
 .menu-section{
-    padding:60px 10%;
+    padding:40px 10%;
     background:#f0fdf4;
-    text-align:center;
+    margin-top: 30px;
 }
 
 .menu-title{
@@ -488,6 +502,138 @@ input[type="radio"] {
     border-bottom: 3px solid #00a896;
 }
 
+/* =========================
+   SECCION PRODUCTOS
+========================= */
+
+.productos-seccion {
+    padding: 60px 10%;
+    background: rgb(248, 246, 246);
+    text-align: center;
+}
+
+.productos-seccion h2 {
+    font-size: 36px;
+    color: #00a896;
+    margin-bottom: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.productos-descripcion {
+    font-size: 16px;
+    color: gray;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.producto-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.producto-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.producto-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.producto-info h3 {
+    font-size: 18px;
+    color: #2c2c2c;
+    margin-bottom: 3px;
+}
+
+.producto-info p {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 8px;
+}
+
+.producto-detalles {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.precio {
+    font-size: 20px;
+    font-weight: bold;
+    color:#16a34a;
+    margin-bottom: 15px;
+}
+
+.producto-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 3px 0 8px 0;
+}
+
+.estrella {
+    font-size: 18px;
+    color: #ffc107;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rating-text {
+    font-size: 13px;
+    color: #666;
+    margin-left: 5px;
+    font-weight: 500;
+}
+
+
+/* ==================== */
+
+.btn-agregar {
+    background-color: #40e07d;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn-agregar:hover {
+    background-color: #34c76b;
+    box-shadow: 0px 8px 20px rgba(64, 224, 125, 0.4);
+    transform: scale(1.05);
+}
+
+.btn-agregar:active {
+    transform: scale(0.98);
+}
 
 .auth-form {
     display: none;

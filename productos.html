@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Productos - Eat and Bite ¡Vive saludable!</title>
+    <link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+<!-- 
+  ------------------------------
+  PARTE HEADER E INTRODUCCIÓN
+  ENCARGADO: SAMUEL
+  COMENTARIOS: 
+  - ESENCIAL PARA TODA LA PAGINA
+  ------------------------------
+-->
+    <header>
+      <img src="img/logo_1.png" alt="eatandbite" width="100px" />
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="index.html#nosotros">Nosotros</a> <a href="productos.html">Productos</a>
+        <a href="index.html#galeria">Galería</a>
+        <a href="reseña.html">Reseñas</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="login.html" class="login">
+        <img src="img/login_icon.png" alt="login_icon"/>Login</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="productos" class="productos-seccion">
+        <h2>Nuestros Productos</h2>
+        <p class="productos-descripcion">Descubre nuestra variedad de comidas saludables y deliciosas, preparadas con ingredientes frescos y de calidad.</p>
+        
+        <div class="productos-container">
+          <div class="producto-card">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500" alt="Ensalada Fit"/>
+            <div class="producto-info">
+              <h3>Ensalada Fit</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="rating-text">(4.8)</span>
+              </div>
+              <p>Mix de hojas verdes con proteína vegetal.</p>
+              <p class="producto-detalles">Rica en nutrientes, perfecta para mantener tu energía durante el día.</p>
+              <span class="precio">$22.000</span>
+              <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+          </div>
+
+          <div class="producto-card">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500" alt="Wrap Integral"/>
+            <div class="producto-info">
+              <h3>Wrap Integral</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">☆</span>
+                <span class="rating-text">(4.5)</span>
+              </div>
+              <p>Tortilla integral con pollo y vegetales.</p>
+              <p class="producto-detalles">Una opción deliciosa y equilibrada para cualquier momento del día.</p>
+              <span class="precio">$24.000</span>
+              <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+          </div>
+
+          <div class="producto-card">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500" alt="Protein Bowl"/>
+            <div class="producto-info">
+              <h3>Protein Bowl</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="rating-text">(5.0)</span>
+              </div>
+              <p>Arroz integral, salmón y vegetales.</p>
+              <p class="producto-detalles">Alto en proteína y omega-3, ideal para tu bienestar y salud.</p>
+              <span class="precio">$28.000</span>
+              <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+          </div>
+
+          <div class="producto-card">
+            <img src="img/bebida_Smoothie-Verde.png" alt="Smoothie Verde"/>
+            <div class="producto-info">
+              <h3>Smoothie Verde</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">☆</span>
+                <span class="rating-text">(4.7)</span>
+              </div>
+              <p>Bebida refrescante con frutas y espinaca.</p>
+              <p class="producto-detalles">Detox natural para empezar tu día con energía positiva.</p>
+              <span class="precio">$12.000</span>
+              <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+          </div>
+
+          <div class="producto-card">
+            <img src="img/plato-Sushi-Saludable.png" alt="Sushi Saludable"/>
+            <div class="producto-info">
+              <h3>Sushi Saludable</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="rating-text">(4.9)</span>
+              </div>
+              <p>Rolls integrales con pescado fresco.</p>
+              <p class="producto-detalles">Sabor oriental con ingredientes premium seleccionados.</p>
+              <span class="precio">$26.000</span>
+              <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+          </div>
+
+          <div class="producto-card">
+            <img src="img/plato_Acai-Bowl.png" alt="Acai Bowl"/>
+            <div class="producto-info">
+              <h3>Acai Bowl</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">☆</span>
+                <span class="rating-text">(4.6)</span>
+              </div>
+              <p>Bol de açaí con granola y frutas.</p>
+              <p class="producto-detalles">Desayuno perfecto, nutritivo y completamente delicioso.</p>
+              <span class="precio">$20.000</span>
+              <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+          </div>
+
+          <div class="producto-card">
+            <img src="img/plato_Poke-Bowl.png" alt="Poké Bowl"/>
+            <div class="producto-info">
+              <h3>Poké Bowl</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="rating-text">(5.0)</span>
+              </div>
+              <p>Atún fresco con vegetales y salsa especial.</p>
+              <p class="producto-detalles">Plato hawaiano auténtico, delicioso y saludable.</p>
+              <span class="precio">$27.000</span>
+              <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+          </div>
+
+          <div class="producto-card">
+            <img src="img/plato-Pizza-Integral.png" alt="Pizza Integral"/>
+            <div class="producto-info">
+              <h3>Pizza Integral</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">☆</span>
+                <span class="rating-text">(4.4)</span>
+              </div>
+              <p>Base integral con mozzarella y vegetales frescos.</p>
+              <p class="producto-detalles">Pizza saludable sin culpa, deliciosa en cada bite.</p>
+              <span class="precio">$24.500</span>
+              <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+          </div>
+
+          <div class="producto-card">
+            <img src="img/plato_Tostadas-Aguacate.png" alt="Tostadas Aguacate"/>
+            <div class="producto-info">
+              <h3>Tostadas de Aguacate</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="rating-text">(4.9)</span>
+              </div>
+              <p>Pan integral con aguacate, huevo y tomate.</p>
+              <p class="producto-detalles">Desayuno nutritivo que te mantendrá satisfecho.</p>
+              <span class="precio">$18.000</span>
+              <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+          </div>
+
+          <div class="producto-card">
+            <img src="img/plato_Pollo-Parrilla.png" alt="Pollo a la Parrilla"/>
+            <div class="producto-info">
+              <h3>Pollo a la Parrilla</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">☆</span>
+                <span class="rating-text">(4.7)</span>
+              </div>
+              <p>Pechuga de pollo con vegetales asados.</p>
+              <p class="producto-detalles">Alto en proteína, perfecto para tu rutina fitness.</p>
+              <span class="precio">$26.000</span>
+              <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+          </div>
+
+          <div class="producto-card">
+            <img src="img/plato_Tacos-Verdura.png" alt="Tacos de Verdura"/>
+            <div class="producto-info">
+              <h3>Tacos de Verdura</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">☆</span>
+                <span class="rating-text">(4.5)</span>
+              </div>
+              <p>Tacos con verduras de temporada y salsas caseras.</p>
+              <p class="producto-detalles">Opción vegana deliciosa y natural.</p>
+              <span class="precio">$19.000</span>
+              <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+          </div>
+
+          <div class="producto-card">
+            <img src="img/plato_Tabla-Quesos-Gourmet.png" alt="Queso Artesanal"/>
+            <div class="producto-info">
+              <h3>Tabla de Quesos Gourmet</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="rating-text">(5.0)</span>
+              </div>
+              <p>Selección de quesos artesanales con frutas y frutos secos.</p>
+              <p class="producto-detalles">Tabla premium para compartir o disfrutar en solitario.</p>
+              <span class="precio">$30.000</span>
+              <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+          </div>
+
+          <div class="producto-card">
+            <img src="img/plato_Salmon-Mantequilla.png" alt="Salmón a la Mantequilla"/>
+            <div class="producto-info">
+              <h3>Salmón a la Mantequilla</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="rating-text">(4.8)</span>
+              </div>
+              <p>Filete de salmón con salsa de mantequilla y limón.</p>
+              <p class="producto-detalles">Omega-3 puro, delicioso y sofisticado.</p>
+              <span class="precio">$31.000</span>
+              <button class="btn-agregar">Agregar al carrito</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+<!-- 
+  ------------------------------
+  PARTE FOOTER
+  ENCARGADO: SAMUEL
+  COMENTARIOS: 
+  - ESENCIAL PARA TODA LA PAGINA
+  ------------------------------
+-->
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="copyright"> &copy; 2026 <strong>Eat and Bite</strong>. Todos los derechos reservados.</p>
+        <div class="social-links">
+          <a href="https://wa.me/573000000000" target="_blank" class="social-icon">
+            <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp"/>
+          </a>
+          <a href="https://instagram.com/eatandbite" target="_blank" class="social-icon">
+            <img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram"/>
+          </a>
+          <a href="https://facebook.com/eatandbite" target="_blank" class="social-icon">
+            <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook"/>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
