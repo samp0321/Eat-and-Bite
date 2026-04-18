@@ -282,7 +282,7 @@ body {
 /* INFO */
 .menu-info{
     padding:15px;
-    text-align:left;
+    text-align:center;
 }
 
 .menu-info h3{
@@ -598,6 +598,8 @@ input[type="radio"] {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    align-items: center;
+    text-align: center;
 }
 
 .producto-info h3 {
@@ -625,6 +627,10 @@ input[type="radio"] {
     color:#16a34a;
     margin-bottom: 15px;
 }
+
+.precio.status-pending { color: #e74c3c; }
+.precio.status-shipping { color: #3498db; }
+.precio.status-delivered { color: #2ecc71; }
 
 .producto-rating {
     display: flex;
@@ -654,10 +660,14 @@ input[type="radio"] {
     background-color: #40e07d;
     color: white;
     border: none;
-    padding: 12px;
+    padding: 12px 20px;
     border-radius: 8px;
     font-weight: 500;
     cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    width: 100%;
     transition: all 0.3s ease;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -919,7 +929,7 @@ input[type="radio"] {
     align-items: center;
     text-align: center;
     max-width: 800px;
-    margin: auto;
+    margin: 0 auto 30px;
 }
 .carrito_producto img{
     width: 100%;
@@ -990,6 +1000,19 @@ input[type="radio"] {
     transition: 0.3s;
 }
 
+.pago-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-pse {
+    height: 25px;
+    margin-top: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .metodo-opcion:hover {
     border-color: #00a896;
 }
@@ -998,4 +1021,78 @@ input[type="radio"] {
     height: 30px;
     display: block;
     margin: 0 auto 5px;
+}
+
+/* Layout para agendar envío en Mis Pedidos */
+.pedido-agendado {
+    flex-direction: row;
+    text-align: center;
+    align-items: stretch ;
+    max-width: 900px ;
+}
+
+.pedido-agendado .producto-seccion {
+    flex: 1;
+    border-right: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.pedido-agendado .envio-seccion {
+    flex: 1;
+    padding: 30px;
+    background-color: #fcfcfc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.envio-seccion p {
+    margin-bottom: 20px;
+    color: #666;
+    padding: 0 10px;
+}
+
+.select-envio {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+}
+
+/* Estilos para el rastreo del pedido */
+.mapa-ficticio {
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    background: #e0e0e0 url('https://www.transparenttextures.com/patterns/gray-lines.png');
+    display: block;
+}
+
+.repartidor-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.repartidor-info img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.repartidor-info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #666;
 }

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Finalizar Compra - Eat and Bite</title>
+    <link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+    <header>
+      <img src="img/logo_1.png" alt="eatandbite" width="100px" />
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="index.html#nosotros">Nosotros</a> 
+        <a href="productos.html">Productos</a>
+        <a href="index.html#galeria">Galería</a>
+        <a href="reseña.html">Reseñas</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="login.html" class="login">
+          <img src="img/login_icon.png" alt="login_icon"/>Ingresar
+        </a>
+        <div class="contenido_header">
+          <button>☰</button>
+          <div class="contenido_boton_usuario">
+            <a href="">Mi cuenta</a>
+            <a href="mis_pedidos.html">Mis pedidos</a>
+            <a href="opciones.html">Configuración</a>
+            <a href="">Servicio al cliente</a>
+            <a href="" class="cerrar_sesion">Cerrar sesión</a>
+          </div>
+        </div>
+        <a href="carrito.html" class="icono_carrito">🛒</a>
+      </nav>
+    </header>
+
+    <main class="carrito">
+      <section class="carrito_panel">
+        <h1>Mis Pedidos</h1>
+        <p class="carrito_p">Aquí puedes ver el historial y el estado de tus pedidos realizados.</p>
+        <div class="carrito_producto pedido-agendado">
+          <div class="producto-seccion">
+            <img src="img/plato_Salmon-Mantequilla.png" alt="carrito_producto">
+            <div class="producto-info">
+              <h3>Comida Normal</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="rating-text">(4.8)</span>
+              </div>
+              <p>Descripción: Producto para comer</p>
+              <p>Cantidad: <strong>1</strong></p>
+              <span class="precio">$31.000 - Pagado</span>
+            </div>
+          </div>
+          <div class="envio-seccion">
+            <h2>Agendar Envío</h2>
+            <div class="input-group">
+              <label>Dirección de envío</label>
+              <input type="text" placeholder="Calle 123 #45-67" required>
+            </div>
+            <div class="input-group">
+              <label>Proveedor</label>
+              <select class="select-envio">
+                <option value="eatandbite">Eat and Bite Kitchen (Recomendada)</option>
+                <option value="buenavida">Buena Vida</option>
+                <option value="herbal">Herbal Food</option>
+                <option value="herbal">McSalad</option>
+              </select>
+            </div>
+            <a href="compra_productos.html" class="btn-agregar">Programar Pedido</a>
+          </div>
+        </div>
+
+        <!-- Pedido No Pagado -->
+        <div class="carrito_producto pedido-agendado">
+          <div class="producto-seccion">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500" alt="Ensalada Fit">
+            <div class="producto-info">
+              <h3>Ensalada Fit</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="rating-text">(4.8)</span>
+              </div>
+              <p>Descripción: Mix de hojas verdes con proteína vegetal.</p>
+              <p>Cantidad: <strong>1</strong></p>
+              <span class="precio status-pending">$22.000 - Pendiente de pago</span>
+            </div>
+          </div>
+          <div class="envio-seccion">
+            <h2>Completar Pago</h2>
+            <p>Tu pedido aún no ha sido procesado. Realiza el pago para poder agendar tu envío a domicilio.</p>
+            <a href="compra_productos.html" class="btn-agregar">Ir a pagar ahora</a>
+          </div>
+        </div>
+
+        <!-- Pedido Enviado (Rastreo) -->
+        <div class="carrito_producto pedido-agendado">
+          <div class="producto-seccion">
+            <img src="img/plato_Poke-Bowl.png" alt="Poké Bowl">
+            <div class="producto-info">
+              <h3>Poké Bowl</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="rating-text">(5.0)</span>
+              </div>
+              <p>Descripción: Atún fresco con vegetales y salsa especial.</p>
+              <p>Cantidad: <strong>3</strong></p>
+              <span class="precio status-shipping">$27.000 - Enviado</span>
+            </div>
+          </div>
+          <div class="envio-seccion">
+            <h2>Rastreo en tiempo real</h2>
+            <div class="mapa-ficticio">
+              <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600" alt="Mapa de rastreo">
+            </div>
+            <div class="repartidor-info">
+              <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=100&h=100&fit=crop" alt="Foto del repartidor Carlos">
+              <div>
+                <strong>Carlos Ortiz - McSalad</strong>
+                <p>Tu repartidor está a 5 min de distancia</p>
+              </div>
+            </div>
+            <a href="#" class="btn-agregar">Chatear con el repartidor</a>
+          </div>
+        </div>
+
+        <!-- Pedido Entregado -->
+        <div class="carrito_producto pedido-agendado">
+          <div class="producto-seccion">
+            <img src="img/plato_Tostadas-Aguacate.png" alt="Tostadas de Aguacate">
+            <div class="producto-info">
+              <h3>Tostadas de Aguacate</h3>
+              <div class="producto-rating">
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="estrella">★</span>
+                <span class="rating-text">(4.9)</span>
+              </div>
+              <p>Descripción: Pan integral con aguacate, huevo y tomate.</p>
+              <p>Cantidad: <strong>2</strong></p>
+              <span class="precio status-delivered">$18.000 - Completado</span>
+            </div>
+          </div>
+          <div class="envio-seccion">
+            <h2>¡Buen provecho!</h2>
+            <p>Tu pedido ha sido entregado con éxito. Nos encantaría saber qué te pareció la comida.</p>
+            <a href="reseña.html" class="btn-agregar">Dejar una reseña</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <p class="copyright"> &copy; 2026 <strong>Eat and Bite</strong>. Todos los derechos reservados.</p>
+        <div class="social-links">
+          <a href="https://wa.me/573000000000" target="_blank" class="social-icon">
+            <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp"/>
+          </a>
+          <a href="https://instagram.com/eatandbite" target="_blank" class="social-icon">
+            <img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram"/>
+          </a>
+          <a href="https://facebook.com/eatandbite" target="_blank" class="social-icon">
+            <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook"/>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="chat-soporte">
+      <a href="mailto:soporte@eatandbite.com" class="chat-soporte-link">
+        <span class="chat-soporte-icon">💬</span>
+        <div>
+          <strong>Soporte</strong>
+          <small>Chatea con nosotros</small>
+        </div>
+      </a>
+    </div>
+  </body>
+</html>

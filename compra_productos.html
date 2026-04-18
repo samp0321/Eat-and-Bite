@@ -23,7 +23,7 @@
           <button>☰</button>
           <div class="contenido_boton_usuario">
             <a href="">Mi cuenta</a>
-            <a href="">Tus pedidos</a>
+            <a href="mis_pedidos.html">Mis pedidos</a>
             <a href="opciones.html">Configuración</a>
             <a href="">Servicio al cliente</a>
             <a href="" class="cerrar_sesion">Cerrar sesión</a>
@@ -48,12 +48,12 @@
                 <span>PayPal</span>
             </div>
             <div class="metodo-opcion">
-                <img src="https://static.placetopay.com/pse/logo.png" alt="PSE" style="height: 25px; margin-top: 5px;"/>
-                <span style="display:block; margin-top:10px">PSE</span>
+                <img class="PSE_PNG img-pse" src="https://www.viajescircular.com.co/wp-content/uploads/2021/06/PSE.png" alt="PSE"/>
+                <span>PSE</span>
             </div>
         </div>
 
-        <form id="pago-form" class="auth-form" style="display: flex;">
+        <form id="pago-form" class="auth-form pago-form-container">
             <div class="input-group">
                 <label>Número de Tarjeta</label>
                 <input type="text" placeholder="0000 0000 0000 0000" required>
@@ -79,7 +79,7 @@
                     <option>Bancolombia</option>
                     <option>Banco de Bogotá</option>
                     <option>Davivienda</option>
-                    <option>Nequi / Daviplata</option>
+                    <option>Nequi</option>
                 </select>
             </div>
 
@@ -89,7 +89,6 @@
     </main>
 
     <footer class="footer">
-      <!-- Reutilizamos el footer ya existente en style.css -->
       <div class="footer-container">
         <p class="copyright"> &copy; 2026 <strong>Eat and Bite</strong>. Todos los derechos reservados.</p>
         <div class="social-links">
