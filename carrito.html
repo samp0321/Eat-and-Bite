@@ -39,64 +39,35 @@
         <a href="carrito.html" class="icono_carrito">🛒</a>
       </nav>
     </header>
-    <main class="opciones-main">
-      <section class="opciones-panel">
-        <h1>Configuración de usuario</h1>
-        <p class="opciones-p">Personaliza tu experiencia con estas opciones.</p>
-        <div class="opciones-formato">
-          <div class="opcion-card">
-            <div class="opcion-card-body">
-              <span class="opcion-icon">🎨</span>
-              <h2>Cambiar color de fondo</h2>
-              <p>Elige el tema que más te guste para tu página.</p>
-            </div>
-            <div class="opcion-card-footer">
-              <button class="btn-agregar">Cambiar Color</button>
-            </div>
-        </div>
-<!-- 
-  ------------------------------
-  PARTE OPCIONES
-  ENCARGADO: SAMUEL
-  COMENTARIOS: 
-  - N/A
-  ------------------------------
--->
-          <div class="opcion-card">
-            <div class="opcion-card-body">
-              <span class="opcion-icon">🔗</span>
-              <h2>Enlazar cuenta</h2>
-              <p>Conecta tu cuenta con Facebook o Google.</p>
-            </div>
-            <div class="opcion-card-footer">
-              <a href="#" class="btn-agregar">Facebook</a>
-              <a href="#" class="btn-agregar">Google</a>
+    <main class="carrito">
+        <section class="carrito_panel">
+        <h1>Carrito de compras</h1>
+        <p class="carrito_p">Visualización previa de tus productos de compra.</p>
+        <div class="carrito_producto">
+            <img src="img/plato_Salmon-Mantequilla.png" alt="carrito_producto">
+            <div class="producto-info">
+                <h3>Comida Normal</h3>
+                <div class="producto-rating">
+                    <span class="estrella">★</span>
+                    <span class="estrella">★</span>
+                    <span class="estrella">★</span>
+                    <span class="estrella">★</span>
+                    <span class="estrella">★</span>
+                    <span class="rating-text">(4.8)</span>
+                </div>
+                <p>Stock: 99+</p>
+                <p>Descripción: Producto para comer</p>
+                <div class="cantidad-control">
+                    <label>Cantidad:</label>
+                    <button class="btn-cantidad">-</button>
+                    <span class="cantidad">1</span>
+                    <button class="btn-cantidad">+</button>
+                </div>
+                <span class="precio">$31.000</span>
+                <a href="compra_productos.html" class="btn-agregar">Confirmar pedido</a>
             </div>
         </div>
-
-          <div class="opcion-card">
-            <div class="opcion-card-body">
-              <span class="opcion-icon">🔔</span>
-              <h2>Notificaciones</h2>
-              <p>Activa alertas para ofertas, pedidos y novedades.</p>
-            </div>
-            <div class="opcion-card-footer">
-              <button class="btn-agregar">Configurar</button>
-            </div>
-          </div>
-
-          <div class="opcion-card">
-            <div class="opcion-card-body">
-              <span class="opcion-icon">💳</span>
-              <h2>Medios de pago</h2>
-              <p>Administra tus tarjetas y formas de pago guardadas.</p>
-            </div>
-            <div class="opcion-card-footer">
-              <button class="btn-agregar">Ver detalles</button>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
     </main>
     <footer class="footer">
       <div class="footer-container">
@@ -114,7 +85,6 @@
         </div>
       </div>
     </footer>
-
     <div class="chat-soporte">
       <a href="mailto:soporte@eatandbite.com" class="chat-soporte-link">
         <span class="chat-soporte-icon">💬</span>

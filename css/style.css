@@ -775,7 +775,7 @@ input[type="radio"] {
     margin-bottom: 0.5rem;
     color: #00a896;
 }
-.opciones-intro {
+.opciones-p {
     margin-bottom: 2rem;
     color: #5f6b80;
 }
@@ -890,4 +890,112 @@ input[type="radio"] {
     display: block;
     font-size: 0.82rem;
     color: rgba(255, 255, 255, 0.9);
+}
+.carrito {
+    padding: 3rem 1rem 4rem;
+}
+.carrito h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: #00a896;
+}
+.carrito_panel {
+    max-width: 1040px;
+    margin: 0 auto;
+    text-align: center;
+}
+.carrito_p {
+    margin-bottom: 2rem;
+    color: #5f6b80;
+}
+.carrito_producto {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+.carrito_producto img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.cantidad-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+.btn-cantidad {
+    background-color: #00a896;
+    color: white;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex: none;
+}
+.btn-cantidad:hover {
+    background-color: #34c76b;
+    transform: scale(1.1);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+}
+.btn-cantidad:active {
+    transform: scale(0.9);
+}
+.cantidad {
+    font-size: 14px;
+    font-weight: bold;
+    min-width: 30px;
+    text-align: center;
+}
+.carrito_producto .producto-info {
+    width: 100%;
+}
+
+/* SECCION PAGO */
+.pago-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.metodos-pago {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.metodo-opcion {
+    border: 2px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.metodo-opcion:hover {
+    border-color: #00a896;
+}
+
+.metodo-opcion img {
+    height: 30px;
+    display: block;
+    margin: 0 auto 5px;
 }

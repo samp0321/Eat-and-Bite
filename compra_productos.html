@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Finalizar Compra - Eat and Bite</title>
+    <link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+    <header>
+      <img src="img/logo_1.png" alt="eatandbite" width="100px" />
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="index.html#nosotros">Nosotros</a> 
+        <a href="productos.html">Productos</a>
+        <a href="index.html#galeria">Galería</a>
+        <a href="reseña.html">Reseñas</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="login.html" class="login">
+          <img src="img/login_icon.png" alt="login_icon"/>Ingresar
+        </a>
+        <div class="contenido_header">
+          <button>☰</button>
+          <div class="contenido_boton_usuario">
+            <a href="">Mi cuenta</a>
+            <a href="">Tus pedidos</a>
+            <a href="opciones.html">Configuración</a>
+            <a href="">Servicio al cliente</a>
+            <a href="" class="cerrar_sesion">Cerrar sesión</a>
+          </div>
+        </div>
+        <a href="carrito.html" class="icono_carrito">🛒</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="pago-container">
+        <h2>Finalizar Pedido</h2>
+        <p class="productos-descripcion">Selecciona tu método de pago preferido para completar la compra.</p>
+        
+        <div class="metodos-pago">
+            <div class="metodo-opcion">
+                <img src="https://img.icons8.com/color/48/visa.png" alt="Visa"/>
+                <span>Tarjeta</span>
+            </div>
+            <div class="metodo-opcion">
+                <img src="https://img.icons8.com/color/48/paypal.png" alt="PayPal"/>
+                <span>PayPal</span>
+            </div>
+            <div class="metodo-opcion">
+                <img src="https://static.placetopay.com/pse/logo.png" alt="PSE" style="height: 25px; margin-top: 5px;"/>
+                <span style="display:block; margin-top:10px">PSE</span>
+            </div>
+        </div>
+
+        <form id="pago-form" class="auth-form" style="display: flex;">
+            <div class="input-group">
+                <label>Número de Tarjeta</label>
+                <input type="text" placeholder="0000 0000 0000 0000" required>
+            </div>
+            <div style="display: flex; gap: 15px;">
+                <div class="input-group" style="flex: 2;">
+                    <label>Fecha de Expiración</label>
+                    <input type="text" placeholder="MM/AA" required>
+                </div>
+                <div class="input-group" style="flex: 1;">
+                    <label>CVV</label>
+                    <input type="password" placeholder="123" required>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>Nombre en la Tarjeta</label>
+                <input type="text" placeholder="Como aparece en la tarjeta" required>
+            </div>
+            
+            <div class="input-group">
+                <label>Selecciona tu Banco (Solo para PSE)</label>
+                <select style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd;">
+                    <option>Bancolombia</option>
+                    <option>Banco de Bogotá</option>
+                    <option>Davivienda</option>
+                    <option>Nequi / Daviplata</option>
+                </select>
+            </div>
+
+            <button type="submit" class="main-btn" style="margin-top: 20px;">Pagar Ahora</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <!-- Reutilizamos el footer ya existente en style.css -->
+      <div class="footer-container">
+        <p class="copyright"> &copy; 2026 <strong>Eat and Bite</strong>. Todos los derechos reservados.</p>
+        <div class="social-links">
+          <a href="https://wa.me/573000000000" target="_blank" class="social-icon">
+            <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp"/>
+          </a>
+          <a href="https://instagram.com/eatandbite" target="_blank" class="social-icon">
+            <img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram"/>
+          </a>
+          <a href="https://facebook.com/eatandbite" target="_blank" class="social-icon">
+            <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook"/>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="chat-soporte">
+      <a href="mailto:soporte@eatandbite.com" class="chat-soporte-link">
+        <span class="chat-soporte-icon">💬</span>
+        <div>
+          <strong>Soporte</strong>
+          <small>Chatea con nosotros</small>
+        </div>
+      </a>
+    </div>
+  </body>
+</html>
