@@ -20,7 +20,7 @@
       <nav>
         <a href="index.html">Inicio</a>
         <a href="#nosotros">Nosotros</a> <a href="productos.html">Productos</a>
-        <a href="#galeria">Galería</a>
+        <a href="galeria.html">Galería</a>
         <a href="reseña.html">Reseñas</a>
         <a href="contacto.html">Contacto</a>
         <a href="login.html" class="login">
@@ -106,6 +106,77 @@
             <p>"Eat and bite me hizo ver que vale la pena comer saludable. Agradecida con esta página."</p>
             <cite>Jorge Bermudez</cite>
         </div>
+
+        <div class="card">
+            <div class="card-top">
+                <img src="https://i.pravatar.cc/150?u=mariana" alt="Mariana" class="foto-perfil">
+                <div class="estrella">
+                    <img src="https://img.icons8.com/fluency/48/star.png" alt="estrella">
+                    <img src="https://img.icons8.com/fluency/48/star.png" alt="estrella">
+                    <img src="https://img.icons8.com/fluency/48/star.png" alt="estrella">
+                    <img src="https://img.icons8.com/fluency/48/star.png" alt="estrella">
+                </div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1512058564366-c9e1f33698f4?w=400" alt="Bowl saludable" class="foto-comida">
+            <p>"La variedad es excelente y el servicio siempre llega a tiempo. Mis almuerzos nunca fueron tan fáciles."</p>
+            <cite>Mariana Torres</cite>
+        </div>
+
+        <div class="card">
+            <div class="card-top">
+                <img src="https://i.pravatar.cc/150?u=antonio" alt="Antonio" class="foto-perfil">
+                <div class="estrella">
+                    <img src="https://img.icons8.com/fluency/48/star.png" alt="estrella">
+                    <img src="https://img.icons8.com/fluency/48/star.png" alt="estrella">
+                    <img src="https://img.icons8.com/fluency/48/star.png" alt="estrella">
+                    <img src="https://img.icons8.com/fluency/48/star.png" alt="estrella">
+                    <img src="https://img.icons8.com/fluency/48/star.png" alt="estrella">
+                </div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400" alt="Smoothie saludable" class="foto-comida">
+            <p>"Perfecto para mis entrenamientos. Comida rica, saludable y muy conveniente para llevar."</p>
+            <cite>Antonio Rojas</cite>
+        </div>
+    </div>
+</section>
+
+<section id="review-form-section">
+    <div class="review-form-container">
+        <h2>Deja tu reseña</h2>
+        <p>Selecciona el producto, comparte tu experiencia y califícanos sin necesidad de usar JavaScript.</p>
+        <form class="review-form" action="#" method="POST">
+            <div class="form-group">
+                <label for="producto">Producto</label>
+                <select id="producto" name="producto" required>
+                    <option value="">Elige un producto</option>
+                    <option value="ensalada-saludable">Ensalada Saludable</option>
+                    <option value="pizza-integral">Pizza Integral</option>
+                    <option value="salmon-saludable">Salmón Saludable</option>
+                    <option value="wrap-saludable">Wrap Saludable</option>
+                    <option value="smoothie-energetico">Smoothie Energético</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comentario">Comentario (opcional)</label>
+                <textarea id="comentario" name="comentario" placeholder="Cuenta cómo fue tu experiencia" rows="5"></textarea>
+            </div>
+            <fieldset class="rating-group">
+                <legend>Calificación</legend>
+                <div class="rating-stars">
+                    <input type="radio" id="star5" name="estrellas" value="5" required>
+                    <label for="star5" title="Excelente">★</label>
+                    <input type="radio" id="star4" name="estrellas" value="4">
+                    <label for="star4" title="Muy bien">★</label>
+                    <input type="radio" id="star3" name="estrellas" value="3">
+                    <label for="star3" title="Bien">★</label>
+                    <input type="radio" id="star2" name="estrellas" value="2">
+                    <label for="star2" title="Regular">★</label>
+                    <input type="radio" id="star1" name="estrellas" value="1">
+                    <label for="star1" title="Malo">★</label>
+                </div>
+            </fieldset>
+            <button type="submit" class="boton_introduccion_a">Enviar reseña</button>
+        </form>
     </div>
 </section>
     </main>
