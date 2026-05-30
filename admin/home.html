@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Eat & Bite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="../Michell/img/eatandbite_temp.png" alt="Eat & Bite" style="max-height: 45px;" onerror="this.src='https://img.icons8.com/color/48/salad.png'">
+            <a href="home.html" class="logo-texto">Eat & Bite Admin</a>
+        </div>
+        <nav>
+            <span style="font-weight: 600; color: #555;">Bienvenido, <strong style="color: #2e7d32;">Administrador</strong></span>
+            <a href="login.html" style="color: #c62828;">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-layout">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3>Módulos</h3>
+                <ul>
+                    <li><a href="home.html" class="active">Panel de Control</a></li>
+                    <li><a href="proveedores.html">Proveedores</a></li>
+                    <li><a href="comentarios.html">Moderación Comentarios</a></li>
+                    <li><a href="auditoria.html">Auditoría de Menú</a></li>
+                    <li><a href="usuarios.html">Gestión de Usuarios</a></li>
+                    <li><a href="recuperacion.html">Recuperación Cuentas</a></li>
+                    <li><a href="segmentacion.html">Segmentación</a></li>
+                    <li><a href="interacciones.html">Historial Interacciones</a></li>
+                    <li><a href="contacto.html">Soporte y Contacto</a></li>
+                    <li><a href="promociones.html">Promociones y VIP</a></li>
+                    <li><a href="ventas.html">Reporte Financiero</a></li>
+                </ul>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div style="margin-bottom: 20px;">
+                    <h1 style="color: #2e7d32; font-family: 'Segoe UI', sans-serif;">Panel de Control y Resumen</h1>
+                    <p style="color: #666;">Monitoreo general de la calidad, usuarios y ventas en Eat & Bite.</p>
+                </div>
+
+                <!-- Alert Box for suspicious suppliers / Offense logs -->
+                <div class="alert-box warning">
+                    <strong>⚠️ Alertas del Sistema Activas:</strong> Hay <strong>2 proveedores pendientes</strong> y <strong>1 alerta de intrusión</strong> (accesos inusuales) que requieren revisión inmediata.
+                </div>
+
+                <!-- Metrics Grid -->
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <h4>Ventas del Día (COP)</h4>
+                        <div class="number">$1,245,800</div>
+                    </div>
+                    <div class="metric-box blue">
+                        <h4>Ingresos Netos Totales</h4>
+                        <div class="number">$832,400</div>
+                    </div>
+                    <div class="metric-box purple">
+                        <h4>Productos VIP Destacados</h4>
+                        <div class="number">5 Activos</div>
+                    </div>
+                </div>
+
+                <!-- Admin Card: Resumen de Actividades -->
+                <div class="admin-card">
+                    <h2>Módulos Clave del Administrador</h2>
+                    <p>Haga clic en cualquiera de las siguientes secciones para gestionar los flujos comerciales y de seguridad:</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+                        <div style="padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; background-color: #fafafa;">
+                            <h3 style="color: #2e7d32; font-size: 1.1rem; margin-bottom: 8px;">🛡️ Moderación y Calidad</h3>
+                            <p style="font-size: 0.85rem; color: #555; margin-bottom: 12px;">Acepte o rechace proveedores, filtre comentarios ofensivos y audite platos del menú.</p>
+                            <a href="proveedores.html" class="btn btn-primary" style="font-size: 0.8rem; padding: 6px 12px;">Ir a Moderación</a>
+                        </div>
+
+                        <div style="padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; background-color: #fafafa;">
+                            <h3 style="color: #1565c0; font-size: 1.1rem; margin-bottom: 8px;">👥 Usuarios y Accesos</h3>
+                            <p style="font-size: 0.85rem; color: #555; margin-bottom: 12px;">Gestione cuentas de clientes, atienda tiquets de recuperación y cree segmentos de marketing.</p>
+                            <a href="usuarios.html" class="btn btn-secondary" style="font-size: 0.8rem; padding: 6px 12px;">Gestionar Usuarios</a>
+                        </div>
+
+                        <div style="padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; background-color: #fafafa;">
+                            <h3 style="color: #ef6c00; font-size: 1.1rem; margin-bottom: 8px;">🏷️ Campañas e Ingresos</h3>
+                            <p style="font-size: 0.85rem; color: #555; margin-bottom: 12px;">Configure cupones de descuento para clientes VIP y revise analíticas financieras.</p>
+                            <a href="promociones.html" class="btn btn-warning" style="font-size: 0.8rem; padding: 6px 12px;">Ver Promociones</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Admin Card: Productos Más Vendidos -->
+                <div class="admin-card">
+                    <h2>🥗 Productos Más Vendidos de la Semana</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Plato</th>
+                                <th>Categoría</th>
+                                <th>Unidades Vendidas</th>
+                                <th>Ingresos Totales (COP)</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Salmón Grill con Vegetales</td>
+                                <td>Almuerzos Saludables</td>
+                                <td>142 unidades</td>
+                                <td>$4,260,000</td>
+                                <td><span class="badge badge-approved">VIP Destacado</span></td>
+                            </tr>
+                            <tr>
+                                <td>Ensalada de Quinoa y Aguacate</td>
+                                <td>Ensaladas y Bowls</td>
+                                <td>98 unidades</td>
+                                <td>$1,764,000</td>
+                                <td><span class="badge badge-approved">Activo</span></td>
+                            </tr>
+                            <tr>
+                                <td>Pizza Integral Vegana</td>
+                                <td>Snacks Saludables</td>
+                                <td>85 unidades</td>
+                                <td>$1,530,000</td>
+                                <td><span class="badge badge-approved">Activo</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">
+                &copy; 2026 <strong>Eat and Bite</strong>. Panel de Administración de Calidad.
+            </p>
+            <div class="social-links">
+                <a href="https://wa.me/573000000000" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp" style="width:24px; height:24px;"></a>
+                <a href="https://instagram.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram" style="width:24px; height:24px;"></a>
+                <a href="https://facebook.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook" style="width:24px; height:24px;"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

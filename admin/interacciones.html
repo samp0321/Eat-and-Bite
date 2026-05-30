@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Interacciones - Eat & Bite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="../Michell/img/eatandbite_temp.png" alt="Eat & Bite" style="max-height: 45px;" onerror="this.src='https://img.icons8.com/color/48/salad.png'">
+            <a href="home.html" class="logo-texto">Eat & Bite Admin</a>
+        </div>
+        <nav>
+            <span style="font-weight: 600; color: #555;">Bienvenido, <strong style="color: #2e7d32;">Administrador</strong></span>
+            <a href="login.html" style="color: #c62828;">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-layout">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3>Módulos</h3>
+                <ul>
+                    <li><a href="home.html">Panel de Control</a></li>
+                    <li><a href="proveedores.html">Proveedores</a></li>
+                    <li><a href="comentarios.html">Moderación Comentarios</a></li>
+                    <li><a href="auditoria.html">Auditoría de Menú</a></li>
+                    <li><a href="usuarios.html">Gestión de Usuarios</a></li>
+                    <li><a href="recuperacion.html">Recuperación Cuentas</a></li>
+                    <li><a href="segmentacion.html">Segmentación</a></li>
+                    <li><a href="interacciones.html" class="active">Historial Interacciones</a></li>
+                    <li><a href="contacto.html">Soporte y Contacto</a></li>
+                    <li><a href="promociones.html">Promociones y VIP</a></li>
+                    <li><a href="ventas.html">Reporte Financiero</a></li>
+                </ul>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div style="margin-bottom: 20px;">
+                    <h1 style="color: #2e7d32;">Monitoreo de Interacciones de Usuarios</h1>
+                    <p style="color: #666;">Revise de manera cuantitativa el registro de clics, compras y comentarios de los clientes de Eat & Bite.</p>
+                </div>
+
+                <!-- Filters for logs -->
+                <div class="admin-card">
+                    <h2>🔍 Filtrar Registro de Logs</h2>
+                    <form action="interacciones.html" method="GET" style="margin-top: 15px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                            <div class="form-group">
+                                <label for="fecha_desde">Desde</label>
+                                <input type="date" id="fecha_desde" name="desde" value="2026-05-01">
+                            </div>
+                            <div class="form-group">
+                                <label for="fecha_hasta">Hasta</label>
+                                <input type="date" id="fecha_hasta" name="hasta" value="2026-05-22">
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo_interaccion">Tipo de Interacción</label>
+                                <select id="tipo_interaccion" name="tipo">
+                                    <option value="todos">Todas las interacciones</option>
+                                    <option value="click" selected>Clic en Menú</option>
+                                    <option value="compra">Compra Realizada</option>
+                                    <option value="comentario">Comentario Publicado</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 15px; margin-top: 15px; flex-wrap: wrap; gap: 10px;">
+                            <div style="font-weight: bold; color: #2e7d32; font-size: 1.05rem;">
+                                📈 Total Registrado: <span style="background-color: #e8f5e9; padding: 4px 8px; border-radius: 4px; font-size: 1.1rem;">3,842 clics</span>
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <button type="submit" class="btn btn-secondary" style="background-color: #1565c0;">Filtrar Logs</button>
+                                <a href="confirmar_reporte_generar1.html" class="btn btn-primary">📤 Generar y Exportar Reporte</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Table with simulated logs -->
+                <div class="admin-card">
+                    <h2>📋 Trazabilidad de Logs Recientes</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha y Hora</th>
+                                <th>Usuario</th>
+                                <th>Tipo Acción</th>
+                                <th>Dispositivo / IP</th>
+                                <th>Detalle Comercial</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>22/05/2026 10:45 AM</td>
+                                <td>Andres_Perez</td>
+                                <td>Clic en Menú</td>
+                                <td>Android App (186.29.112.5)</td>
+                                <td>Visualizó: Salmón Grill con Vegetales</td>
+                            </tr>
+                            <tr>
+                                <td>22/05/2026 10:42 AM</td>
+                                <td>Laura_Mejia</td>
+                                <td>Clic en Menú</td>
+                                <td>iPhone Safari (190.14.22.8)</td>
+                                <td>Visualizó: Pancakes de Avena y Banano</td>
+                            </tr>
+                            <tr>
+                                <td>22/05/2026 10:39 AM</td>
+                                <td>Sofia_D</td>
+                                <td>Clic en Menú</td>
+                                <td>Chrome Windows (186.30.222.1)</td>
+                                <td>Visualizó: Ensalada de Quinoa y Aguacate</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">
+                &copy; 2026 <strong>Eat and Bite</strong>. Panel de Administración de Calidad.
+            </p>
+            <div class="social-links">
+                <a href="https://wa.me/573000000000" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp" style="width:24px; height:24px;"></a>
+                <a href="https://instagram.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram" style="width:24px; height:24px;"></a>
+                <a href="https://facebook.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook" style="width:24px; height:24px;"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

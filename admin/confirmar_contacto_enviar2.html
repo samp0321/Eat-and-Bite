@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Respuesta - Paso 2 - Eat & Bite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+
+    <div class="confirmation-container success" style="max-width: 500px;">
+        <div style="font-size: 3rem; color: #2e7d32; margin-bottom: 15px;">📲</div>
+        <h3>Canales de Notificación (Paso 2 de 2)</h3>
+        <p>Seleccione por cuáles vías adicionales desea notificar al cliente sobre su respuesta de soporte:</p>
+        
+        <form action="contacto_enviado.html" method="GET" style="text-align: left; margin-bottom: 20px;">
+            <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <input type="checkbox" id="email_notif" name="canales" value="email" checked style="width: auto; cursor: pointer;">
+                <label for="email_notif" style="margin-bottom: 0; cursor: pointer;">Enviar copia al correo electrónico (maria.soto@mail.com)</label>
+            </div>
+            <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <input type="checkbox" id="push_notif" name="canales" value="push" checked style="width: auto; cursor: pointer;">
+                <label for="push_notif" style="margin-bottom: 0; cursor: pointer;">Enviar notificación push a la App móvil</label>
+            </div>
+            <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <input type="checkbox" id="sms_notif" name="canales" value="sms" style="width: auto; cursor: pointer;">
+                <label for="sms_notif" style="margin-bottom: 0; cursor: pointer;">Enviar alerta de mensaje por mensaje de texto (SMS)</label>
+            </div>
+
+            <div class="confirmation-buttons" style="justify-content: flex-end;">
+                <a href="contacto.html" class="btn btn-cancel">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Confirmar y Enviar Respuesta</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

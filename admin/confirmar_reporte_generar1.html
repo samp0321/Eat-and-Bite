@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Reporte - Paso 1 - Eat & Bite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+
+    <div class="confirmation-container success" style="max-width: 500px;">
+        <div style="font-size: 3rem; color: #2e7d32; margin-bottom: 15px;">📤</div>
+        <h3>Generar Reporte de Interacciones (Paso 1 de 2)</h3>
+        <p>Seleccione el formato en el cual desea compilar y exportar el informe consolidado:</p>
+        
+        <form action="confirmar_reporte_generar2.html" method="GET" style="text-align: left; margin-bottom: 20px;">
+            <div class="form-group">
+                <label for="formato_reporte">Formato de Exportación</label>
+                <select id="formato_reporte" name="formato">
+                    <option value="csv">Valores Separados por Comas (.CSV)</option>
+                    <option value="pdf" selected>Documento Portable PDF (.PDF)</option>
+                    <option value="xlsx">Hoja de Cálculo de Excel (.XLSX)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="rango_reporte">Rango Incluido</label>
+                <input type="text" id="rango_reporte" name="rango" value="01/05/2026 al 22/05/2026 (Clic en Menú)" disabled style="background-color: #eee; cursor: not-allowed;">
+            </div>
+            
+            <div class="confirmation-buttons" style="justify-content: flex-end;">
+                <a href="interacciones.html" class="btn btn-cancel">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Continuar al Paso 2</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

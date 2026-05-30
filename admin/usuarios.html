@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios - Eat & Bite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="../Michell/img/eatandbite_temp.png" alt="Eat & Bite" style="max-height: 45px;" onerror="this.src='https://img.icons8.com/color/48/salad.png'">
+            <a href="home.html" class="logo-texto">Eat & Bite Admin</a>
+        </div>
+        <nav>
+            <span style="font-weight: 600; color: #555;">Bienvenido, <strong style="color: #2e7d32;">Administrador</strong></span>
+            <a href="login.html" style="color: #c62828;">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-layout">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3>Módulos</h3>
+                <ul>
+                    <li><a href="home.html">Panel de Control</a></li>
+                    <li><a href="proveedores.html">Proveedores</a></li>
+                    <li><a href="comentarios.html">Moderación Comentarios</a></li>
+                    <li><a href="auditoria.html">Auditoría de Menú</a></li>
+                    <li><a href="usuarios.html" class="active">Gestión de Usuarios</a></li>
+                    <li><a href="recuperacion.html">Recuperación Cuentas</a></li>
+                    <li><a href="segmentacion.html">Segmentación</a></li>
+                    <li><a href="interacciones.html">Historial Interacciones</a></li>
+                    <li><a href="contacto.html">Soporte y Contacto</a></li>
+                    <li><a href="promociones.html">Promociones y VIP</a></li>
+                    <li><a href="ventas.html">Reporte Financiero</a></li>
+                </ul>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div style="margin-bottom: 20px;">
+                    <h1 style="color: #2e7d32;">Gestión de Clientes y Seguridad</h1>
+                    <p style="color: #666;">Supervise el comportamiento de los clientes, atienda alertas de intrusión y restrinja el acceso a usuarios que infrinjan los términos de servicio.</p>
+                </div>
+
+                <!-- Section: Alertas de comportamiento inusual e intrusión -->
+                <div class="admin-card">
+                    <h2 style="color: #ef6c00;">⚠️ Alertas de Accesos Inusuales (Intrusión)</h2>
+                    <p style="margin-bottom: 15px; color: #666; font-size: 0.9rem;">El sistema ha detectado inicios de sesión desde ubicaciones geográficas distantes en intervalos de tiempo imposibles.</p>
+                    
+                    <div style="padding: 15px; border: 1px solid #ffe0b2; border-radius: 6px; background-color: #fff3e0; border-left: 5px solid #ef6c00;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 15px;">
+                            <div style="flex: 1;">
+                                <h3 style="color: #e65100; margin-bottom: 4px;">Carlos_G1 (Carlos Gómez)</h3>
+                                <p style="font-size: 0.85rem; color: #555;"><strong>Correo:</strong> carlos.gomez@mail.com | <span class="badge badge-warning">Actividad Sospechosa</span></p>
+                                <p style="font-size: 0.85rem; color: #d84315; margin-top: 8px;"><strong>Historial de accesos inusuales:</strong><br>
+                                • Hace 10 min: Inicio de sesión exitoso desde Bogotá, Colombia (Dirección IP: 186.29.112.5)<br>
+                                • Hace 12 min: Inicio de sesión fallido y luego exitoso desde Miami, FL, EE.UU. (Dirección IP: 74.12.190.23)
+                                </p>
+                            </div>
+                            <div style="align-self: center;">
+                                <a href="confirmar_usuario_bloquear.html?user=carlos_g1" class="btn btn-warning">Bloquear Cuenta Temporalmente</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Usuarios Reportados para Baneo Directo -->
+                <div class="admin-card" style="margin-top: 25px;">
+                    <h2 style="color: #c62828;">🚨 Reportados para Baneo Definitivo</h2>
+                    <p style="margin-bottom: 15px; color: #666; font-size: 0.9rem;">Usuarios acumuladores de infracciones graves, spam o lenguaje ofensivo reiterativo en comentarios.</p>
+                    
+                    <div style="padding: 15px; border: 1px solid #ffcdd2; border-radius: 6px; background-color: #ffebee; border-left: 5px solid #c62828;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 15px;">
+                            <div style="flex: 1;">
+                                <h3 style="color: #b71c1c; margin-bottom: 4px;">Esteban_Hater (Esteban Restrepo)</h3>
+                                <p style="font-size: 0.85rem; color: #555;"><strong>Correo:</strong> esteban.restrepo@mail.com | <span class="badge badge-rejected" style="background-color: #ffcdd2; color: #c62828; border: 1px solid #c62828;">Infracciones Críticas (5)</span></p>
+                                <p style="font-size: 0.85rem; color: #c62828; margin-top: 8px;"><strong>Causa del baneo:</strong> Cuenta reportada múltiples veces por escribir insultos explícitos a proveedores y otros comensales. Ya cuenta con 3 advertencias previas sin cambio de actitud.</p>
+                            </div>
+                            <div style="align-self: center;">
+                                <a href="confirmar_usuario_banear1.html?user=esteban_hater" class="btn btn-danger">Banear Usuario (Definitivo)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Listado de Todos los Usuarios (Ejemplo) -->
+                <div class="admin-card" style="margin-top: 25px;">
+                    <h2>👥 Base General de Usuarios Registrados</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Correo</th>
+                                <th>Ciudad</th>
+                                <th>Fecha Registro</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Andres_Perez</td>
+                                <td>andres@mail.com</td>
+                                <td>Bogotá</td>
+                                <td>15/01/2026</td>
+                                <td><span class="badge badge-approved">Activo</span></td>
+                            </tr>
+                            <tr>
+                                <td>Laura_Mejia</td>
+                                <td>laura.m@mail.com</td>
+                                <td>Medellín</td>
+                                <td>02/03/2026</td>
+                                <td><span class="badge badge-approved">Activo</span></td>
+                            </tr>
+                            <tr>
+                                <td>Sofia_D</td>
+                                <td>sofia.d@mail.com</td>
+                                <td>Cali</td>
+                                <td>20/04/2026</td>
+                                <td><span class="badge badge-approved">Activo</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">
+                &copy; 2026 <strong>Eat and Bite</strong>. Panel de Administración de Calidad.
+            </p>
+            <div class="social-links">
+                <a href="https://wa.me/573000000000" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp" style="width:24px; height:24px;"></a>
+                <a href="https://instagram.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram" style="width:24px; height:24px;"></a>
+                <a href="https://facebook.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook" style="width:24px; height:24px;"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

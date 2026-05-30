@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moderación de Proveedores - Eat & Bite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="../Michell/img/eatandbite_temp.png" alt="Eat & Bite" style="max-height: 45px;" onerror="this.src='https://img.icons8.com/color/48/salad.png'">
+            <a href="home.html" class="logo-texto">Eat & Bite Admin</a>
+        </div>
+        <nav>
+            <span style="font-weight: 600; color: #555;">Bienvenido, <strong style="color: #2e7d32;">Administrador</strong></span>
+            <a href="login.html" style="color: #c62828;">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-layout">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3>Módulos</h3>
+                <ul>
+                    <li><a href="home.html">Panel de Control</a></li>
+                    <li><a href="proveedores.html" class="active">Proveedores</a></li>
+                    <li><a href="comentarios.html">Moderación Comentarios</a></li>
+                    <li><a href="auditoria.html">Auditoría de Menú</a></li>
+                    <li><a href="usuarios.html">Gestión de Usuarios</a></li>
+                    <li><a href="recuperacion.html">Recuperación Cuentas</a></li>
+                    <li><a href="segmentacion.html">Segmentación</a></li>
+                    <li><a href="interacciones.html">Historial Interacciones</a></li>
+                    <li><a href="contacto.html">Soporte y Contacto</a></li>
+                    <li><a href="promociones.html">Promociones y VIP</a></li>
+                    <li><a href="ventas.html">Reporte Financiero</a></li>
+                </ul>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div style="margin-bottom: 20px;">
+                    <h1 style="color: #2e7d32;">Sistema de Moderación y Calidad de Proveedores</h1>
+                    <p style="color: #666;">Aprobación de nuevos proveedores, revisión de alertas automáticas y auditoría de fotos sospechosas generadas por IA.</p>
+                </div>
+
+                <!-- Section 1: Aceptar o rechazar proveedores registrados pendientes -->
+                <div class="admin-card">
+                    <h2>📥 Proveedores Pendientes por Aprobación</h2>
+                    <p style="margin-bottom: 15px; color: #666; font-size: 0.9rem;">Revise la información y decida si aprueba o rechaza a los siguientes postulantes para filtrar malos productos y evitar estafas.</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- Proveedor 1 -->
+                        <div style="padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; background-color: #fafafa;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
+                                <div>
+                                    <h3 style="color: #2e7d32; margin-bottom: 4px;">EcoNutrición SAS</h3>
+                                    <p style="font-size: 0.85rem; color: #777;"><strong>Identificación / NIT:</strong> 900.123.456-1 | <span class="badge badge-pending">Pendiente</span></p>
+                                </div>
+                                <div style="display: flex; gap: 10px;">
+                                    <a href="confirmar_proveedor_aceptar.html?id=econutricion" class="btn btn-primary" style="font-size: 0.8rem; padding: 6px 12px;">Aceptar Proveedor</a>
+                                    <a href="confirmar_proveedor_rechazar.html?id=econutricion" class="btn btn-danger" style="font-size: 0.8rem; padding: 6px 12px;">Rechazar</a>
+                                </div>
+                            </div>
+                            <div style="margin-top: 10px; font-size: 0.85rem; color: #444; border-top: 1px solid #eeeeee; padding-top: 10px;">
+                                <strong>Descripción del Negocio:</strong> Productor de insumos orgánicos directos del campo, ensaladas listas y jugos prensados en frío.<br>
+                                <strong>Productos Ofrecidos:</strong> Ensalada Campestre de Quinoa, Green Juice Antioxidante, Bowl de Frutas Silvestres.
+                            </div>
+                        </div>
+
+                        <!-- Proveedor 2 -->
+                        <div style="padding: 15px; border: 1px solid #e0e0e0; border-radius: 6px; background-color: #fafafa;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
+                                <div>
+                                    <h3 style="color: #2e7d32; margin-bottom: 4px;">Delicias Fit</h3>
+                                    <p style="font-size: 0.85rem; color: #777;"><strong>Identificación / NIT:</strong> 890.987.654-5 | <span class="badge badge-pending">Pendiente</span></p>
+                                </div>
+                                <div style="display: flex; gap: 10px;">
+                                    <a href="confirmar_proveedor_aceptar.html?id=deliciasfit" class="btn btn-primary" style="font-size: 0.8rem; padding: 6px 12px;">Aceptar Proveedor</a>
+                                    <a href="confirmar_proveedor_rechazar.html?id=deliciasfit" class="btn btn-danger" style="font-size: 0.8rem; padding: 6px 12px;">Rechazar</a>
+                                </div>
+                            </div>
+                            <div style="margin-top: 10px; font-size: 0.85rem; color: #444; border-top: 1px solid #eeeeee; padding-top: 10px;">
+                                <strong>Descripción del Negocio:</strong> Postres y repostería saludable alta en proteína, sin azúcares refinados ni gluten.<br>
+                                <strong>Productos Ofrecidos:</strong> Muffins Proteicos de Arándanos, Torta Integral Fit de Chocolate, Alfajores Keto.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Suspicious Supplier Alerts -->
+                <div class="admin-card">
+                    <h2 style="color: #c62828;">⚠️ Alertas de Proveedores Sospechosos</h2>
+                    <p style="margin-bottom: 15px; color: #666; font-size: 0.9rem;">El sistema ha detectado comportamientos irregulares en las siguientes cuentas registradas. Actúe de inmediato para mitigar riesgos.</p>
+
+                    <div style="padding: 15px; border: 1px solid #ffe0b2; border-radius: 6px; background-color: #fff3e0; border-left: 5px solid #ef6c00;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
+                            <div>
+                                <h3 style="color: #e65100; margin-bottom: 4px;">Fast & Healthy Foods</h3>
+                                <p style="font-size: 0.85rem; color: #e65100;"><strong>Alerta Automática:</strong> Se han detectado múltiples cuentas registradas bajo la misma dirección IP en menos de 24 horas y los documentos de identidad presentan firmas digitales inconsistentes.</p>
+                            </div>
+                            <div>
+                                <a href="confirmar_sospechoso_bloquear.html?id=fasthealthy" class="btn btn-danger" style="font-size: 0.8rem; padding: 6px 12px;">Bloquear / Restringir Cuenta</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: AI Image Quality Check -->
+                <div class="admin-card">
+                    <h2>🤖 Detector de Calidad e Imágenes IA</h2>
+                    <p style="margin-bottom: 15px; color: #666; font-size: 0.9rem;">Auditoría de imágenes de platos del menú. Las fotos creadas con inteligencia artificial están prohibidas para asegurar la transparencia del producto ofrecido al cliente final.</p>
+
+                    <div style="padding: 15px; border: 1px solid #e1bee7; border-radius: 6px; background-color: #f3e5f5; border-left: 5px solid #8e24aa;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 15px;">
+                            <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                                <!-- AI generated image placeholder / icon -->
+                                <div style="width: 100px; height: 100px; border-radius: 6px; background-color: #ddd; overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative;">
+                                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=150" alt="Arroz Integral Wok" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(142, 36, 170, 0.8); color: white; font-size: 0.7rem; text-align: center; font-weight: bold; padding: 2px;">92% Prob. IA</div>
+                                </div>
+                                <div>
+                                    <h3 style="color: #6a1b9a; margin-bottom: 4px;">Plato: Arroz Integral Wok Especial</h3>
+                                    <p style="font-size: 0.85rem; color: #555;"><strong>Proveedor:</strong> BioSaludable Co. (Aprobado)</p>
+                                    <p style="font-size: 0.85rem; color: #c62828;"><strong>Infracción:</strong> El modelo de moderación visual ha catalogado esta imagen como generada por inteligencia artificial (demasiado perfecta, texturas irreales).</p>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="confirmar_ia_descartar.html?plato=arroz_integral" class="btn btn-warning" style="font-size: 0.8rem; padding: 6px 12px; background-color: #8e24aa;">Descartar Imagen / Suspender Plato</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">
+                &copy; 2026 <strong>Eat and Bite</strong>. Panel de Administración de Calidad.
+            </p>
+            <div class="social-links">
+                <a href="https://wa.me/573000000000" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp" style="width:24px; height:24px;"></a>
+                <a href="https://instagram.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram" style="width:24px; height:24px;"></a>
+                <a href="https://facebook.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook" style="width:24px; height:24px;"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

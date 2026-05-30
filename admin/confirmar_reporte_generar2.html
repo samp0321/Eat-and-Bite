@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Reporte - Paso 2 - Eat & Bite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+
+    <div class="confirmation-container success" style="max-width: 500px;">
+        <div style="font-size: 3rem; color: #2e7d32; margin-bottom: 15px;">📨</div>
+        <h3>Confirmación de Envío de Reporte (Paso 2 de 2)</h3>
+        <p>El reporte PDF de 3,842 clics se enviará al siguiente correo del administrador. Confirme el envío:</p>
+        
+        <form action="interacciones_exportado.html" method="GET" style="text-align: left; margin-bottom: 20px;">
+            <div class="form-group">
+                <label for="correo_admin">Correo de Destino</label>
+                <input type="email" id="correo_admin" name="destinatario" value="admin@eatandbite.com" required placeholder="admin@eatandbite.com">
+            </div>
+            
+            <div style="text-align: left; background-color: #fafafa; border: 1px solid #ddd; border-radius: 6px; padding: 12px; font-size: 0.85rem; color: #666; margin-bottom: 20px;">
+                <strong>Resumen del Archivo:</strong><br>
+                Nombre: <code>reporte_interacciones_20260522.pdf</code><br>
+                Tamaño aprox: <code>1.4 MB</code>
+            </div>
+
+            <div class="confirmation-buttons" style="justify-content: flex-end;">
+                <a href="interacciones.html" class="btn btn-cancel">Cancelar y Descartar</a>
+                <button type="submit" class="btn btn-primary">Generar y Enviar Reporte</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promociones y VIP - Eat & Bite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="../Michell/img/eatandbite_temp.png" alt="Eat & Bite" style="max-height: 45px;" onerror="this.src='https://img.icons8.com/color/48/salad.png'">
+            <a href="home.html" class="logo-texto">Eat & Bite Admin</a>
+        </div>
+        <nav>
+            <span style="font-weight: 600; color: #555;">Bienvenido, <strong style="color: #2e7d32;">Administrador</strong></span>
+            <a href="login.html" style="color: #c62828;">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-layout">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3>Módulos</h3>
+                <ul>
+                    <li><a href="home.html">Panel de Control</a></li>
+                    <li><a href="proveedores.html">Proveedores</a></li>
+                    <li><a href="comentarios.html">Moderación Comentarios</a></li>
+                    <li><a href="auditoria.html">Auditoría de Menú</a></li>
+                    <li><a href="usuarios.html">Gestión de Usuarios</a></li>
+                    <li><a href="recuperacion.html">Recuperación Cuentas</a></li>
+                    <li><a href="segmentacion.html">Segmentación</a></li>
+                    <li><a href="interacciones.html">Historial Interacciones</a></li>
+                    <li><a href="contacto.html">Soporte y Contacto</a></li>
+                    <li><a href="promociones.html" class="active">Promociones y VIP</a></li>
+                    <li><a href="ventas.html">Reporte Financiero</a></li>
+                </ul>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div style="margin-bottom: 20px;">
+                    <h1 style="color: #2e7d32;">Gestión de Productos VIP y Promociones</h1>
+                    <p style="color: #666;">Destaque platos exclusivos para usuarios con membresía VIP y cree cupones de descuento especiales.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start;">
+                    
+                    <!-- Section 1: VIP Featured Products -->
+                    <div class="admin-card">
+                        <h2 style="color: #7b1fa2;">🌟 Productos Destacados VIP</h2>
+                        <p style="margin-bottom: 15px; color: #666; font-size: 0.85rem;">Los platos destacados solo se muestran en la sección premium de la aplicación móvil.</p>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            <!-- VIP Item 1 -->
+                            <div style="padding: 12px; border: 1px solid #e0e0e0; border-radius: 6px; background-color: #fafafa; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <strong style="color: #7b1fa2;">Salmón Grill con Vegetales</strong>
+                                    <p style="font-size: 0.8rem; color: #777;">Proveedor: Delicias Fit</p>
+                                </div>
+                                <a href="confirmar_vip_desactivar.html?id=salmon" class="btn btn-danger" style="font-size: 0.75rem; padding: 5px 10px; background-color: #7b1fa2;">Desactivar VIP</a>
+                            </div>
+
+                            <!-- VIP Item 2 -->
+                            <div style="padding: 12px; border: 1px solid #e0e0e0; border-radius: 6px; background-color: #fafafa; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <strong style="color: #555;">Ensalada de Quinoa y Aguacate</strong>
+                                    <p style="font-size: 0.8rem; color: #777;">Proveedor: EcoNutrición SAS</p>
+                                </div>
+                                <a href="confirmar_vip_activar.html?id=quinoa" class="btn btn-primary" style="font-size: 0.75rem; padding: 5px 10px;">Destacar VIP</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Promotions & Coupons Form -->
+                    <div class="admin-card">
+                        <h2>🏷️ Crear Campaña de Promoción</h2>
+                        <p style="margin-bottom: 15px; color: #666; font-size: 0.85rem;">Genere cupones aplicables a compras totales para incentivar la retención de clientes.</p>
+                        
+                        <form action="confirmar_promo_crear.html" method="GET">
+                            <div class="form-group">
+                                <label for="codigo_promo">Código de Cupón</label>
+                                <input type="text" id="codigo_promo" name="codigo" value="SALUD20" required placeholder="Ej: FIT2026">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="descuento_promo">Porcentaje de Descuento (%)</label>
+                                <input type="number" id="descuento_promo" name="descuento" value="20" min="1" max="100" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="segmento_promo">Segmento Objetivo de Clientes</label>
+                                <select id="segmento_promo" name="segmento">
+                                    <option value="todos">Todos los usuarios</option>
+                                    <option value="jovenes_bogota" selected>Jóvenes Bogotá - Salmón Grill Preferente</option>
+                                    <option value="inactivos">Clientes Inactivos (Recuperación)</option>
+                                </select>
+                            </div>
+
+                            <div style="display: flex; justify-content: flex-end;">
+                                <button type="submit" class="btn btn-primary">Crear y Activar Cupón</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <!-- Section 3: Active Promotions List -->
+                <div class="admin-card" style="margin-top: 25px;">
+                    <h2>📋 Cupones y Campañas Activas</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Descuento</th>
+                                <th>Segmento Asignado</th>
+                                <th>Estado</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>SALUD20</strong></td>
+                                <td>20% DTO.</td>
+                                <td>Jóvenes Bogotá</td>
+                                <td><span class="badge badge-approved">Activo</span></td>
+                                <td><a href="confirmar_promo_desactivar.html?promo=salud20" style="color: #c62828; font-size: 0.85rem; font-weight: bold; text-decoration: none;">Eliminar</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>FITSUMMER</strong></td>
+                                <td>15% DTO.</td>
+                                <td>Todos los usuarios</td>
+                                <td><span class="badge badge-approved">Activo</span></td>
+                                <td><a href="confirmar_promo_desactivar.html?promo=fitsummer" style="color: #c62828; font-size: 0.85rem; font-weight: bold; text-decoration: none;">Eliminar</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">
+                &copy; 2026 <strong>Eat and Bite</strong>. Panel de Administración de Calidad.
+            </p>
+            <div class="social-links">
+                <a href="https://wa.me/573000000000" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp" style="width:24px; height:24px;"></a>
+                <a href="https://instagram.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram" style="width:24px; height:24px;"></a>
+                <a href="https://facebook.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook" style="width:24px; height:24px;"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

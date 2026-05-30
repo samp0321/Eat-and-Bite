@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segmentación de Marketing - Eat & Bite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="../Michell/img/eatandbite_temp.png" alt="Eat & Bite" style="max-height: 45px;" onerror="this.src='https://img.icons8.com/color/48/salad.png'">
+            <a href="home.html" class="logo-texto">Eat & Bite Admin</a>
+        </div>
+        <nav>
+            <span style="font-weight: 600; color: #555;">Bienvenido, <strong style="color: #2e7d32;">Administrador</strong></span>
+            <a href="login.html" style="color: #c62828;">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-layout">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3>Módulos</h3>
+                <ul>
+                    <li><a href="home.html">Panel de Control</a></li>
+                    <li><a href="proveedores.html">Proveedores</a></li>
+                    <li><a href="comentarios.html">Moderación Comentarios</a></li>
+                    <li><a href="auditoria.html">Auditoría de Menú</a></li>
+                    <li><a href="usuarios.html">Gestión de Usuarios</a></li>
+                    <li><a href="recuperacion.html">Recuperación Cuentas</a></li>
+                    <li><a href="segmentacion.html" class="active">Segmentación</a></li>
+                    <li><a href="interacciones.html">Historial Interacciones</a></li>
+                    <li><a href="contacto.html">Soporte y Contacto</a></li>
+                    <li><a href="promociones.html">Promociones y VIP</a></li>
+                    <li><a href="ventas.html">Reporte Financiero</a></li>
+                </ul>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div style="margin-bottom: 20px;">
+                    <h1 style="color: #2e7d32;">Segmentación de Clientes para Campañas</h1>
+                    <p style="color: #666;">Filtre los clientes de acuerdo a sus hábitos de compra, ubicación e interacciones para lanzar promociones dirigidas.</p>
+                </div>
+
+                <!-- Segmentation Settings Form -->
+                <div class="admin-card">
+                    <h2>🎯 Configurar Filtros del Segmento</h2>
+                    <form action="segmentacion.html" method="GET" style="margin-top: 15px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                            <div class="form-group">
+                                <label for="edad">Rango de Edad</label>
+                                <select id="edad" name="edad">
+                                    <option value="todos">Todos los rangos</option>
+                                    <option value="18-25" selected>Jóvenes (18 - 25 años)</option>
+                                    <option value="26-40">Adultos Jóvenes (26 - 40 años)</option>
+                                    <option value="41+">Mayores (41+ años)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ubicacion">Ubicación (Ciudad)</label>
+                                <select id="ubicacion" name="ubicacion">
+                                    <option value="todas">Todas las ciudades</option>
+                                    <option value="bogota" selected>Bogotá</option>
+                                    <option value="medellin">Medellín</option>
+                                    <option value="cali">Cali</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="frecuencia">Frecuencia de Compra</label>
+                                <select id="frecuencia" name="frecuencia">
+                                    <option value="todas">Cualquier frecuencia</option>
+                                    <option value="diaria">Diaria (Comensal Frecuente)</option>
+                                    <option value="semanal" selected>Semanal (Frecuente)</option>
+                                    <option value="mensual">Mensual (Ocasional)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="actividad">Nivel de Actividad en la App</label>
+                                <select id="actividad" name="actividad">
+                                    <option value="todos">Todos</option>
+                                    <option value="alto" selected>Alto (Muchas interacciones)</option>
+                                    <option value="medio">Medio</option>
+                                    <option value="bajo">Bajo (Inactivos)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="grid-column: span 2;">
+                                <label for="plato_visto">Último Plato Visto en Catálogo</label>
+                                <select id="plato_visto" name="plato_visto">
+                                    <option value="todos">Cualquier plato</option>
+                                    <option value="salmon" selected>Salmón Grill con Vegetales</option>
+                                    <option value="quinoa">Ensalada de Quinoa</option>
+                                    <option value="pizza">Pizza Integral Vegana</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 15px; margin-top: 15px;">
+                            <div style="font-weight: bold; color: #2e7d32; font-size: 1.05rem;">
+                                📊 Clientes Coincidentes: <span style="background-color: #e8f5e9; padding: 4px 8px; border-radius: 4px; font-size: 1.1rem;">124 usuarios</span>
+                            </div>
+                            <button type="submit" class="btn btn-secondary" style="background-color: #1565c0;">Aplicar Filtros</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Segment Results Display & Save Segment Button -->
+                <div class="admin-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                        <h2>📋 Vista Previa del Segmento Filtrado</h2>
+                        <a href="confirmar_segmento_guardar1.html" class="btn btn-primary">💾 Guardar Segmento para Campaña</a>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Edad</th>
+                                <th>Ciudad</th>
+                                <th>Frecuencia</th>
+                                <th>Última Actividad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Andres Perez</td>
+                                <td>andres@mail.com</td>
+                                <td>24 años</td>
+                                <td>Bogotá</td>
+                                <td>Semanal</td>
+                                <td>Hace 2 horas</td>
+                            </tr>
+                            <tr>
+                                <td>Sofía Delgado</td>
+                                <td>sofia.d@mail.com</td>
+                                <td>22 años</td>
+                                <td>Bogotá</td>
+                                <td>Semanal</td>
+                                <td>Hace 1 día</td>
+                            </tr>
+                            <tr>
+                                <td>Mateo Restrepo</td>
+                                <td>mateo.r@mail.com</td>
+                                <td>25 años</td>
+                                <td>Bogotá</td>
+                                <td>Semanal</td>
+                                <td>Hace 30 min</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">
+                &copy; 2026 <strong>Eat and Bite</strong>. Panel de Administración de Calidad.
+            </p>
+            <div class="social-links">
+                <a href="https://wa.me/573000000000" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp" style="width:24px; height:24px;"></a>
+                <a href="https://instagram.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram" style="width:24px; height:24px;"></a>
+                <a href="https://facebook.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook" style="width:24px; height:24px;"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Ajustes de Plato - Eat & Bite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+
+    <div class="confirmation-container" style="max-width: 550px;">
+        <div style="font-size: 3rem; color: #ef6c00; margin-bottom: 15px;">📝</div>
+        <h3>¿Solicitar Ajustes en el Plato?</h3>
+        <p>Especifique las correcciones que debe realizar el proveedor (ej. corregir ortografía en la descripción, ajustar el precio, o cambiar la foto):</p>
+        
+        <form action="auditoria_ajustes.html" method="GET" style="text-align: left; margin-bottom: 20px;">
+            <div class="form-group">
+                <label for="comentarios_ajustes">Comentarios y Observaciones</label>
+                <textarea id="comentarios_ajustes" name="observaciones" rows="4" required placeholder="Ej: La descripción tiene faltas de ortografía en 'harina' y el precio propuesto es muy elevado para el mercado actual. Por favor ajustar.">La descripción tiene faltas de ortografía en 'banano' y la foto no tiene suficiente resolución.</textarea>
+            </div>
+            
+            <div class="confirmation-buttons" style="justify-content: flex-end;">
+                <a href="auditoria.html" class="btn btn-cancel">Cancelar</a>
+                <button type="submit" class="btn btn-warning">Enviar Solicitud de Ajustes</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Financiero de Ventas - Eat & Bite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="../Michell/img/eatandbite_temp.png" alt="Eat & Bite" style="max-height: 45px;" onerror="this.src='https://img.icons8.com/color/48/salad.png'">
+            <a href="home.html" class="logo-texto">Eat & Bite Admin</a>
+        </div>
+        <nav>
+            <span style="font-weight: 600; color: #555;">Bienvenido, <strong style="color: #2e7d32;">Administrador</strong></span>
+            <a href="login.html" style="color: #c62828;">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-layout">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3>Módulos</h3>
+                <ul>
+                    <li><a href="home.html">Panel de Control</a></li>
+                    <li><a href="proveedores.html">Proveedores</a></li>
+                    <li><a href="comentarios.html">Moderación Comentarios</a></li>
+                    <li><a href="auditoria.html">Auditoría de Menú</a></li>
+                    <li><a href="usuarios.html">Gestión de Usuarios</a></li>
+                    <li><a href="recuperacion.html">Recuperación Cuentas</a></li>
+                    <li><a href="segmentacion.html">Segmentación</a></li>
+                    <li><a href="interacciones.html">Historial Interacciones</a></li>
+                    <li><a href="contacto.html">Soporte y Contacto</a></li>
+                    <li><a href="promociones.html">Promociones y VIP</a></li>
+                    <li><a href="ventas.html" class="active">Reporte Financiero</a></li>
+                </ul>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div style="margin-bottom: 20px;">
+                    <h1 style="color: #2e7d32;">Reporte de Ventas y Analítica Comercial</h1>
+                    <p style="color: #666;">Seguimiento detallado de las ventas en tiempo real, ingresos totales y rendimiento de platos.</p>
+                </div>
+
+                <!-- Metrics Row -->
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <h4>Ventas Brutas Totales (Hoy)</h4>
+                        <div class="number" style="color: #2e7d32;">$1,245,800 COP</div>
+                    </div>
+                    <div class="metric-box blue">
+                        <h4>Ingresos Netos (Eat & Bite Comisión)</h4>
+                        <div class="number" style="color: #1565c0;">$832,400 COP</div>
+                    </div>
+                    <div class="metric-box purple">
+                        <h4>Total Pedidos Procesados</h4>
+                        <div class="number" style="color: #7b1fa2;">84 Pedidos</div>
+                    </div>
+                </div>
+
+                <!-- Financial Chart (Simulated with SVG and CSS) -->
+                <div class="admin-card">
+                    <h2>📈 Ventas Consolidadas por Hora (Simulación en Tiempo Real)</h2>
+                    <p style="margin-bottom: 20px; color: #777; font-size: 0.85rem;">Distribución horaria del volumen de compras de platos saludables.</p>
+                    
+                    <div style="position: relative; height: 200px; border-bottom: 2px solid #ccc; border-left: 2px solid #ccc; margin: 20px 40px; display: flex; align-items: flex-end; justify-content: space-around; padding-top: 20px;">
+                        
+                        <!-- Bar 1 -->
+                        <div style="display: flex; flex-direction: column; align-items: center; width: 10%;">
+                            <span style="font-size: 0.75rem; font-weight: bold; margin-bottom: 5px; color: #2e7d32;">$120K</span>
+                            <div style="width: 30px; height: 50px; background-color: #2e7d32; border-radius: 4px 4px 0 0;"></div>
+                            <span style="font-size: 0.75rem; margin-top: 5px; color: #666;">08:00</span>
+                        </div>
+
+                        <!-- Bar 2 -->
+                        <div style="display: flex; flex-direction: column; align-items: center; width: 10%;">
+                            <span style="font-size: 0.75rem; font-weight: bold; margin-bottom: 5px; color: #2e7d32;">$350K</span>
+                            <div style="width: 30px; height: 120px; background-color: #2e7d32; border-radius: 4px 4px 0 0;"></div>
+                            <span style="font-size: 0.75rem; margin-top: 5px; color: #666;">10:00</span>
+                        </div>
+
+                        <!-- Bar 3 -->
+                        <div style="display: flex; flex-direction: column; align-items: center; width: 10%;">
+                            <span style="font-size: 0.75rem; font-weight: bold; margin-bottom: 5px; color: #1565c0;">$540K</span>
+                            <div style="width: 30px; height: 170px; background-color: #1565c0; border-radius: 4px 4px 0 0;"></div>
+                            <span style="font-size: 0.75rem; margin-top: 5px; color: #666;">12:00</span>
+                        </div>
+
+                        <!-- Bar 4 -->
+                        <div style="display: flex; flex-direction: column; align-items: center; width: 10%;">
+                            <span style="font-size: 0.75rem; font-weight: bold; margin-bottom: 5px; color: #2e7d32;">$220K</span>
+                            <div style="width: 30px; height: 80px; background-color: #2e7d32; border-radius: 4px 4px 0 0;"></div>
+                            <span style="font-size: 0.75rem; margin-top: 5px; color: #666;">14:00</span>
+                        </div>
+
+                        <!-- Bar 5 -->
+                        <div style="display: flex; flex-direction: column; align-items: center; width: 10%;">
+                            <span style="font-size: 0.75rem; font-weight: bold; margin-bottom: 5px; color: #2e7d32;">$110K</span>
+                            <div style="width: 30px; height: 40px; background-color: #2e7d32; border-radius: 4px 4px 0 0;"></div>
+                            <span style="font-size: 0.75rem; margin-top: 5px; color: #666;">16:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top selling items -->
+                <div class="admin-card" style="margin-top: 25px;">
+                    <h2>🥗 Rendimiento por Producto Vendido</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre del Plato</th>
+                                <th>Proveedor</th>
+                                <th>Precio Venta</th>
+                                <th>Unidades Vendidas</th>
+                                <th>Margen Eat & Bite (30%)</th>
+                                <th>Total Facturado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Salmón Grill con Vegetales</strong></td>
+                                <td>Delicias Fit</td>
+                                <td>$30,000 COP</td>
+                                <td>142</td>
+                                <td>$1,278,000</td>
+                                <td>$4,260,000 COP</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ensalada de Quinoa y Aguacate</strong></td>
+                                <td>EcoNutrición SAS</td>
+                                <td>$18,000 COP</td>
+                                <td>98</td>
+                                <td>$529,200</td>
+                                <td>$1,764,000 COP</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pizza Integral Vegana</strong></td>
+                                <td>Delicias Fit</td>
+                                <td>$18,000 COP</td>
+                                <td>85</td>
+                                <td>$459,000</td>
+                                <td>$1,530,000 COP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">
+                &copy; 2026 <strong>Eat and Bite</strong>. Panel de Administración de Calidad.
+            </p>
+            <div class="social-links">
+                <a href="https://wa.me/573000000000" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp" style="width:24px; height:24px;"></a>
+                <a href="https://instagram.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram" style="width:24px; height:24px;"></a>
+                <a href="https://facebook.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook" style="width:24px; height:24px;"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

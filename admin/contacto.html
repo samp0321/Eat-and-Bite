@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto y Soporte Directo - Eat & Bite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="../Michell/img/eatandbite_temp.png" alt="Eat & Bite" style="max-height: 45px;" onerror="this.src='https://img.icons8.com/color/48/salad.png'">
+            <a href="home.html" class="logo-texto">Eat & Bite Admin</a>
+        </div>
+        <nav>
+            <span style="font-weight: 600; color: #555;">Bienvenido, <strong style="color: #2e7d32;">Administrador</strong></span>
+            <a href="login.html" style="color: #c62828;">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-layout">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3>Módulos</h3>
+                <ul>
+                    <li><a href="home.html">Panel de Control</a></li>
+                    <li><a href="proveedores.html">Proveedores</a></li>
+                    <li><a href="comentarios.html">Moderación Comentarios</a></li>
+                    <li><a href="auditoria.html">Auditoría de Menú</a></li>
+                    <li><a href="usuarios.html">Gestión de Usuarios</a></li>
+                    <li><a href="recuperacion.html">Recuperación Cuentas</a></li>
+                    <li><a href="segmentacion.html">Segmentación</a></li>
+                    <li><a href="interacciones.html">Historial Interacciones</a></li>
+                    <li><a href="contacto.html" class="active">Soporte y Contacto</a></li>
+                    <li><a href="promociones.html">Promociones y VIP</a></li>
+                    <li><a href="ventas.html">Reporte Financiero</a></li>
+                </ul>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div style="margin-bottom: 20px;">
+                    <h1 style="color: #2e7d32;">Buzón de Chat y Soporte al Cliente</h1>
+                    <p style="color: #666;">Chatee directamente en tiempo real con los usuarios que presentan reclamos o dudas de soporte comercial.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px; align-items: start;">
+                    <!-- Active Support Chats List -->
+                    <div class="admin-card" style="padding: 15px;">
+                        <h3 style="color: #2e7d32; font-size: 1.1rem; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px;">Conversaciones Activas</h3>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <!-- Active customer chat selection -->
+                            <a href="contacto.html" style="display: block; padding: 10px; border-radius: 6px; background-color: #e8f5e9; border: 1px solid #2e7d32; text-decoration: none; color: inherit;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <strong>Maria Soto</strong>
+                                    <span class="badge badge-warning" style="font-size: 0.65rem;">Pendiente</span>
+                                </div>
+                                <p style="font-size: 0.8rem; color: #555; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 4px;">Hola, me cobraron dos veces la ensalada...</p>
+                            </a>
+
+                            <!-- Other chat -->
+                            <div style="padding: 10px; border-radius: 6px; background-color: #fafafa; border: 1px solid #eee; cursor: not-allowed; opacity: 0.7;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <strong>Andrés Pérez</strong>
+                                    <span class="badge badge-approved" style="font-size: 0.65rem; background-color: #c8e6c9; color: #2e7d32;">Resuelto</span>
+                                </div>
+                                <p style="font-size: 0.8rem; color: #777; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 4px;">¡Muchas gracias por la rapidez!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat box -->
+                    <div class="admin-card">
+                        <h2>💬 Chat con Maria Soto</h2>
+                        <p style="font-size: 0.85rem; color: #777; margin-bottom: 15px;"><strong>ID de Ticket:</strong> #TK-88392 | <strong>Última interacción:</strong> hace 5 min</p>
+                        
+                        <!-- Chat history box -->
+                        <div class="chat-box">
+                            <!-- Message from user -->
+                            <div class="chat-msg user">
+                                <strong>Maria Soto</strong>
+                                <p style="margin-top: 4px; font-size: 0.9rem;">Hola, me cobraron dos veces la ensalada de quinoa pero el repartidor solo me trajo una de ellas. Ayuda por favor.</p>
+                                <span class="chat-time">10:35 AM</span>
+                            </div>
+                            
+                            <!-- System notification -->
+                            <div style="text-align: center; font-size: 0.75rem; color: #888; margin: 10px 0;">
+                                El Administrador se ha unido al chat.
+                            </div>
+                        </div>
+
+                        <!-- Chat Reply Input Form -->
+                        <form action="confirmar_contacto_enviar1.html" method="GET">
+                            <div class="form-group">
+                                <label for="respuesta_soporte">Responder al Cliente</label>
+                                <textarea id="respuesta_soporte" name="mensaje" rows="3" required placeholder="Escriba la respuesta de soporte aquí...">Hola Maria, lamentamos el inconveniente. Hemos verificado en nuestra pasarela y efectivamente se procesó un cobro duplicado. Procederemos a realizar el reembolso del segundo valor a tu tarjeta.</textarea>
+                            </div>
+
+                            <div style="display: flex; justify-content: flex-end;">
+                                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">
+                &copy; 2026 <strong>Eat and Bite</strong>. Panel de Administración de Calidad.
+            </p>
+            <div class="social-links">
+                <a href="https://wa.me/573000000000" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp" style="width:24px; height:24px;"></a>
+                <a href="https://instagram.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram" style="width:24px; height:24px;"></a>
+                <a href="https://facebook.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook" style="width:24px; height:24px;"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

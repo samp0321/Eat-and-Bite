@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperación de Cuentas - Eat & Bite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="../Michell/img/eatandbite_temp.png" alt="Eat & Bite" style="max-height: 45px;" onerror="this.src='https://img.icons8.com/color/48/salad.png'">
+            <a href="home.html" class="logo-texto">Eat & Bite Admin</a>
+        </div>
+        <nav>
+            <span style="font-weight: 600; color: #555;">Bienvenido, <strong style="color: #2e7d32;">Administrador</strong></span>
+            <a href="login.html" style="color: #c62828;">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-layout">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3>Módulos</h3>
+                <ul>
+                    <li><a href="home.html">Panel de Control</a></li>
+                    <li><a href="proveedores.html">Proveedores</a></li>
+                    <li><a href="comentarios.html">Moderación Comentarios</a></li>
+                    <li><a href="auditoria.html">Auditoría de Menú</a></li>
+                    <li><a href="usuarios.html">Gestión de Usuarios</a></li>
+                    <li><a href="recuperacion.html" class="active">Recuperación Cuentas</a></li>
+                    <li><a href="segmentacion.html">Segmentación</a></li>
+                    <li><a href="interacciones.html">Historial Interacciones</a></li>
+                    <li><a href="contacto.html">Soporte y Contacto</a></li>
+                    <li><a href="promociones.html">Promociones y VIP</a></li>
+                    <li><a href="ventas.html">Reporte Financiero</a></li>
+                </ul>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div style="margin-bottom: 20px;">
+                    <h1 style="color: #2e7d32;">Buzón de Recuperación y Desbloqueos</h1>
+                    <p style="color: #666;">Resuelva solicitudes de contraseñas olvidadas y desbloquee cuentas de clientes que fallaron en el login.</p>
+                </div>
+
+                <!-- Recovery Requests Table -->
+                <div class="admin-card">
+                    <h2>📥 Solicitudes Pendientes</h2>
+                    <p style="margin-bottom: 15px; color: #666; font-size: 0.9rem;">Verifique la identidad del usuario y tome la acción necesaria.</p>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Correo</th>
+                                <th>Fecha Solicitud</th>
+                                <th>Motivo / Tiquete</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Ticket 1: Password reset -->
+                            <tr>
+                                <td><strong>Ana Soto</strong></td>
+                                <td>ana.soto@mail.com</td>
+                                <td>22/05/2026</td>
+                                <td>Olvido de contraseña. Solicita enlace de restablecimiento.</td>
+                                <td>
+                                    <a href="confirmar_recuperacion_reset.html?user=ana_soto" class="btn btn-primary" style="font-size: 0.75rem; padding: 6px 12px;">Restablecer Clave</a>
+                                </td>
+                            </tr>
+                            <!-- Ticket 2: Unlock account -->
+                            <tr>
+                                <td><strong>Pedro López</strong></td>
+                                <td>pedro.lopez@mail.com</td>
+                                <td>21/05/2026</td>
+                                <td>Cuenta bloqueada automáticamente tras 5 intentos fallidos de contraseña.</td>
+                                <td>
+                                    <a href="confirmar_recuperacion_desbloquear.html?user=pedro_lopez" class="btn btn-secondary" style="font-size: 0.75rem; padding: 6px 12px; background-color: #1565c0;">Desbloquear Cuenta</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">
+                &copy; 2026 <strong>Eat and Bite</strong>. Panel de Administración de Calidad.
+            </p>
+            <div class="social-links">
+                <a href="https://wa.me/573000000000" target="_blank"><img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp" style="width:24px; height:24px;"></a>
+                <a href="https://instagram.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram" style="width:24px; height:24px;"></a>
+                <a href="https://facebook.com/eatandbite" target="_blank"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook" style="width:24px; height:24px;"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
