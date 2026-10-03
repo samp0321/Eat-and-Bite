@@ -5,7 +5,7 @@ Eat and Bite es una pagina de comida saludable, la cual se basa en ofrece produc
 ### Integrantes:
 -
 -
--
+- 
 
 ### Paginas Utilizadas para su desarrollo:
 
