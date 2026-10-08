@@ -518,6 +518,30 @@ textarea {
     margin-bottom: 25px;
 }
 
+/*reseñas enviadas por el usuario*/
+.resena-usuario {
+    margin-top: 20px;
+    padding: 15px 20px;
+    border: 1px solid rgba(0, 168, 150, 0.15);
+    border-left: 4px solid #00a896;
+    border-radius: 10px;
+    background: #f7fcf8;
+}
+
+.resena-usuario strong {
+    color: #00a896;
+    margin-right: 10px;
+}
+
+.resena-estrellas {
+    color: #ffc107;
+}
+
+.review-form-container .resena-usuario p {
+    margin: 8px 0 0;
+    color: #333;
+}
+
 .review-form select,
 .review-form textarea {
     width: 100%;

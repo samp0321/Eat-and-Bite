@@ -35,13 +35,18 @@ if (botonEnviar) {
 const botonEliminar = document.querySelector(".btn-reset");
 if (botonEliminar) {
     botonEliminar.addEventListener("click", (event) => {
-        if (!confirm("¿Seguro desea limpiar el formulario?")) {
+        if (!confirm("¿Seguro  limpiadesear el formulario?")) {
             event.preventDefault();
         }
     });
 }
 
 // reseñas manejo del dom
+
+// APARTADO RESEÑAS
+
+
+
 const formulario = document.querySelector(".review-form");
 const estadoMensaje = document.querySelector("#mensaje-estado");
 if (formulario) {
@@ -51,6 +56,29 @@ if (formulario) {
         const nombreFormulario = document.getElementById("nombre").value.trim();
         const selectProducto = document.getElementById("producto");
         const productoFormulario = selectProducto.options[selectProducto.selectedIndex].text;
+        const comentarioFormulario = document.getElementById("comentario").value.trim();
+        const estrellasFormulario = document.querySelector('input[name="estrellas"]:checked').value;
+
+        const nuevaResena = {nombre: nombreFormulario, producto: productoFormulario, mensaje: comentarioFormulario, estrellas: estrellasFormulario};
+
+        const listaResenas = document.getElementById("lista-resenas");
+        const item = document.createElement("div");
+        item.classList.add("resena-usuario");
+
+        const titulo = document.createElement("strong");
+        titulo.textContent = `${nuevaResena.nombre} - ${nuevaResena.producto}`;
+
+        const estrellas = document.createElement("span");
+        estrellas.classList.add("resena-estrellas");
+        estrellas.textContent = "★".repeat(nuevaResena.estrellas);
+
+        const mensaje = document.createElement("p");
+        mensaje.textContent = nuevaResena.mensaje || "Sin comentario";
+
+        item.appendChild(titulo);
+        item.appendChild(estrellas);
+        item.appendChild(mensaje);
+        listaResenas.appendChild(item);
 
         estadoMensaje.textContent = `Gracias por su comentario ${nombreFormulario}, agradecemos su calificación en ${productoFormulario}`;
         estadoMensaje.style.color = "green";
