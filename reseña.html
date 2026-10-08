@@ -146,6 +146,10 @@
         <p>Selecciona el producto, comparte tu experiencia y califícanos sin necesidad de usar JavaScript.</p>
         <form class="review-form" action="#" method="POST">
             <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" placeholder="escriba su nombre aquí" required>
+            </div>
+            <div class="form-group">
                 <label for="producto">Producto</label>
                 <select id="producto" name="producto" required>
                     <option value="">Elige un producto</option>
@@ -176,6 +180,7 @@
                 </div>
             </fieldset>
             <button type="submit" class="boton_introduccion_a">Enviar reseña</button>
+            <span id="mensaje-estado"></span>
         </form>
     </div>
 </section>
@@ -210,5 +215,6 @@
         </div>
       </a>
     </div>
+    <script src="main.js"></script>
 </body>
 </html>
