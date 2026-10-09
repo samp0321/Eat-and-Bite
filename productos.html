@@ -45,18 +45,38 @@
   <h2>Nuestros Productos</h2>
   <p class="productos-descripcion">Descubre nuestra variedad de comidas saludables y deliciosas, preparadas con ingredientes frescos y de calidad.</p>
 
-  <div class="filtros">
-    <label for="filtro-precio">Ordenar por:</label>
-    <select id="filtro-precio">
-      <option value="todos">Todos</option>
-      <option value="menor" selected>Precio: menor a mayor</option>
-      <option value="mayor">Precio: mayor a menor</option>
-      <option value="extremos">Más caro y más barato</option>
-    </select>
+  <!-- Formulario para agregar un producto nuevo (usa push) -->
+  <div class="form-producto">
+    <h3>Nuevo producto</h3>
+    <input type="text" id="nuevo-nombre" placeholder="Nombre del producto"/>
+    <input type="number" id="nuevo-precio" placeholder="Precio" min="1"/>
+    <input type="text" id="nuevo-descripcion" placeholder="Descripción"/>
+    <button type="button" id="btn-guardar-producto">Guardar producto</button>
   </div>
 
+  <div class="filtros">
+    <!-- Buscador de productos (usa filter) -->
+    <div class="filtro-fila">
+      <input type="text" id="buscar-producto" placeholder="Buscar producto..."/>
+      <button type="button" id="btn-buscar">Buscar</button>
+    </div>
+
+    <div class="filtro-fila">
+      <label for="filtro-precio">Ordenar por:</label>
+      <select id="filtro-precio">
+        <option value="todos">Todos</option>
+        <option value="menor" selected>Precio: menor a mayor</option>
+        <option value="mayor">Precio: mayor a menor</option>
+        <option value="extremos">Más caro y más barato</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Mensajes para el usuario (se actualiza con textContent) -->
+  <p id="mensaje-productos" class="mensaje-productos"></p>
+
   <div class="productos-container" id="productos-container">
-    <!-- Las tarjetas se generan desde productos.js -->
+    <!-- Las tarjetas se generan desde main.js con createElement -->
   </div>
 </section>
     </main>
