@@ -232,7 +232,11 @@ if (formulario) {
         const comentarioFormulario = document.getElementById("comentario").value.trim();
         const estrellasFormulario = document.querySelector('input[name="estrellas"]:checked').value;
 
-        const nuevaResena = {nombre: nombreFormulario, producto: productoFormulario, mensaje: comentarioFormulario, estrellas: estrellasFormulario};
+        const nuevaResena = {
+            nombre: nombreFormulario, 
+            producto: productoFormulario, 
+            mensaje: comentarioFormulario, 
+            estrellas: estrellasFormulario};
 
         const listaResenas = document.getElementById("lista-resenas");
         const item = document.createElement("div");
