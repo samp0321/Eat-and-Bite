@@ -664,19 +664,97 @@ input[type="radio"] {
 
 .filtros {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 30px;
 }
 
-.filtros select {
-  padding: 8px 12px;
+/* cada fila: buscador arriba, ordenar por debajo */
+.filtro-fila {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filtro-fila label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+/* mismo tamaño para todos los campos y botones de la sección
+   (anula las reglas globales input { width: 100% } y button { flex: 1 }) */
+.filtros input,
+.filtros select,
+.filtros button,
+.form-producto input,
+.form-producto button {
+  flex: none;
+  width: auto;
+  height: 36px;
+  padding: 0 12px;
+  font-size: 14px;
   border-radius: 8px;
-  background: #1e1e1e;
-  color: #fff;
+  box-sizing: border-box;
+}
+
+.filtros input,
+.filtros select,
+.form-producto input {
+  width: 180px;
   border: 1px solid #1fa463;
+  background: white;
+  color: #333;
+}
+
+.filtros select {
+  width: auto;
+  min-width: 180px;
   cursor: pointer;
+}
+
+.filtros button,
+.form-producto button {
+  border: none;
+  background-color: #40e07d;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filtros button:hover,
+.form-producto button:hover {
+  background-color: #34c76b;
+}
+
+.form-producto {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-producto h3 {
+  width: 100%;
+  color: #00a896;
+}
+
+.mensaje-productos {
+  color: #16a34a;
+  font-weight: 500;
+  min-height: 20px;
 }
 
 .productos-seccion {

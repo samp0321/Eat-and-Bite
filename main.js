@@ -1,5 +1,13 @@
+// selectores del DOM de la sección productos
 const contenedor = document.getElementById('productos-container');
 const filtroPrecio = document.getElementById('filtro-precio');
+const inputBuscar = document.getElementById('buscar-producto');
+const btnBuscar = document.getElementById('btn-buscar');
+const inputNuevoNombre = document.getElementById('nuevo-nombre');
+const inputNuevoPrecio = document.getElementById('nuevo-precio');
+const inputNuevaDescripcion = document.getElementById('nuevo-descripcion');
+const btnGuardarProducto = document.getElementById('btn-guardar-producto');
+const mensajeProductos = document.getElementById('mensaje-productos');
 
 // arreglos y objetos en productos 
 const productos = [
@@ -123,12 +131,25 @@ const productos = [
 ];
 
 
-// Convierte un número como 4.6 en ★★★★★ / ★★★★☆ etc.
-function generarEstrellas(rating) {
-  const llenas = Math.round(rating);   // 4.6 -> 5, 4.4 -> 4
-  const vacias = 5 - llenas;
-  return '<span class="estrella">★</span>'.repeat(llenas) +
-         '<span class="estrella">☆</span>'.repeat(vacias);
+// Crea las estrellas como elementos: 4.6 -> ★★★★★, 4.4 -> ★★★★☆
+function crearEstrellas(rating) {
+  const contenedorRating = document.createElement('div');
+  contenedorRating.classList.add('producto-rating');
+
+  const llenas = Math.round(rating);
+  for (let i = 1; i <= 5; i++) {
+    const estrella = document.createElement('span');
+    estrella.classList.add('estrella');
+    estrella.textContent = i <= llenas ? '★' : '☆';
+    contenedorRating.appendChild(estrella);
+  }
+
+  const texto = document.createElement('span');
+  texto.classList.add('rating-text');
+  texto.textContent = `(${rating.toFixed(1)})`;
+  contenedorRating.appendChild(texto);
+
+  return contenedorRating;
 }
 
 
@@ -137,30 +158,63 @@ function formatearPrecio(precio) {
 }
  
 
+// Crea la tarjeta de un producto con createElement y appendChild
 function crearCard(producto) {
-  return `
-    <div class="producto-card">
-      <img src="${producto.imagen}" alt="${producto.nombre}"/>
-      <div class="producto-info">
-        <h3>${producto.nombre}</h3>
-        <div class="producto-rating">
-          ${generarEstrellas(producto.rating)}
-          <span class="rating-text">(${producto.rating.toFixed(1)})</span>
-        </div>
-        <p>${producto.descripcion}</p>
-        <p class="producto-detalles">${producto.detalles}</p>
-        <span class="precio">${formatearPrecio(producto.precio)}</span>
-        <button class="btn-agregar" data-id="${producto.id}">Agregar al carrito</button>
-      </div>
-    </div>
-  `;
+  const card = document.createElement('div');
+  card.classList.add('producto-card');
+
+  const imagen = document.createElement('img');
+  imagen.src = producto.imagen;
+  imagen.alt = producto.nombre;
+
+  const info = document.createElement('div');
+  info.classList.add('producto-info');
+
+  const titulo = document.createElement('h3');
+  titulo.textContent = producto.nombre;
+
+  const descripcion = document.createElement('p');
+  descripcion.textContent = producto.descripcion;
+
+  const detalles = document.createElement('p');
+  detalles.classList.add('producto-detalles');
+  detalles.textContent = producto.detalles;
+
+  const precio = document.createElement('span');
+  precio.classList.add('precio');
+  precio.textContent = formatearPrecio(producto.precio);
+
+  const botonAgregar = document.createElement('button');
+  botonAgregar.classList.add('btn-agregar');
+  botonAgregar.textContent = 'Agregar al carrito';
+  botonAgregar.addEventListener('click', () => {
+    mensajeProductos.textContent = `${producto.nombre} se agregó al carrito`;
+  });
+
+  info.appendChild(titulo);
+  info.appendChild(crearEstrellas(producto.rating));
+  info.appendChild(descripcion);
+  info.appendChild(detalles);
+  info.appendChild(precio);
+  info.appendChild(botonAgregar);
+
+  card.appendChild(imagen);
+  card.appendChild(info);
+
+  return card;
 }
 
-function renderProductos(lista) {
-  contenedor.innerHTML = lista.map(crearCard).join('');
-}
- 
 function renderProductos(lista, orden = 'menor') {
+  // se limpia el área de resultados antes de volver a pintar
+  contenedor.innerHTML = '';
+
+  if (lista.length === 0) {
+    const vacio = document.createElement('p');
+    vacio.textContent = 'No se encontraron productos.';
+    contenedor.appendChild(vacio);
+    return;
+  }
+
   let resultado = [...lista];
 
   if (orden === 'menor') {
@@ -170,19 +224,75 @@ function renderProductos(lista, orden = 'menor') {
   } else if (orden === 'extremos') {
     const masCaro = lista.reduce((max, p) => p.precio > max.precio ? p : max);
     const masBarato = lista.reduce((min, p) => p.precio < min.precio ? p : min);
-    resultado = [masBarato, masCaro];
+    resultado = masCaro === masBarato ? [masCaro] : [masBarato, masCaro];
   }
 
-  contenedor.innerHTML = resultado.map(crearCard).join('');
+  resultado.forEach(producto => {
+    contenedor.appendChild(crearCard(producto));
+  });
+}
+
+// Busca con filter los productos cuyo nombre contiene el texto escrito
+function buscarProductos() {
+  const texto = inputBuscar.value.trim().toLowerCase();
+  const encontrados = productos.filter(p => p.nombre.toLowerCase().includes(texto));
+
+  renderProductos(encontrados, filtroPrecio.value);
+
+  if (texto === '') {
+    mensajeProductos.textContent = '';
+  } else {
+    mensajeProductos.textContent = `Se encontraron ${encontrados.length} producto(s) para "${inputBuscar.value.trim()}"`;
+  }
+}
+
+// Agrega con push un producto nuevo al arreglo y lo muestra en la lista
+function guardarProducto() {
+  const nombre = inputNuevoNombre.value.trim();
+  const precio = Number(inputNuevoPrecio.value);
+  const descripcion = inputNuevaDescripcion.value.trim();
+
+  if (nombre === '' || precio <= 0) {
+    mensajeProductos.textContent = 'Escribe un nombre y un precio mayor a 0.';
+    return;
+  }
+
+  const nuevoProducto = {
+    id: productos.length + 1,
+    nombre: nombre,
+    precio: precio,
+    rating: 0, // aún no tiene calificaciones
+    imagen: 'img/comida_saludable.jpg',
+    descripcion: descripcion || 'Sin descripción.',
+    detalles: 'Producto nuevo agregado por el usuario.'
+  };
+
+  productos.push(nuevoProducto);
+
+  // se limpia el buscador para que el producto nuevo se vea en la lista
+  inputBuscar.value = '';
+  renderProductos(productos, filtroPrecio.value);
+  mensajeProductos.textContent = `${nuevoProducto.nombre} se guardó correctamente. Ahora hay ${productos.length} productos.`;
+
+  inputNuevoNombre.value = '';
+  inputNuevoPrecio.value = '';
+  inputNuevaDescripcion.value = '';
 }
 
 // solo en productos.html existen el contenedor y el filtro
 if (contenedor && filtroPrecio) {
   renderProductos(productos, 'menor');
 
-  filtroPrecio.addEventListener('change', () => {
-    renderProductos(productos, filtroPrecio.value);
+  filtroPrecio.addEventListener('change', buscarProductos);
+  btnBuscar.addEventListener('click', buscarProductos);
+
+  // si el usuario borra todo el texto del buscador, vuelve la lista completa
+  inputBuscar.addEventListener('input', () => {
+    if (inputBuscar.value.trim() === '') {
+      buscarProductos();
+    }
   });
+  btnGuardarProducto.addEventListener('click', guardarProducto);
 }
 
 
