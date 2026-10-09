@@ -425,7 +425,64 @@ if (formulario) {
     fecha: "2026-04-06"
   }
 ];
+//apartado contacto
+document.addEventListener("DOMContentLoaded", function() {
+const formularioContacto = document.querySelector(".contact-form");
+if (formularioContacto) {
+    formularioContacto.addEventListener("submit", function(event) {
+        event.preventDefault(); 
 
+        const nombre = document.getElementById("nombre").value.trim();
+        const numero = document.getElementById("numero").value.trim();
+        const correo = document.getElementById("correo").value.trim();
+        const mensajeTExto = document.getElementById("mensaje").value.trim();
 
+        const nuevoContacto = {
+            nombre: nombre,
+            numero: numero,
+            correo: correo,
+            mensaje: mensajeTExto
+        };
 
+        let listaContactos = document.getElementById("lista-contactos");
+        if (!listaContactos) {
+            listaContactos = document.createElement("div");
+            listaContactos.id = "lista-contactos";
+            formularioContacto.parentNode.appendChild(listaContactos);
+        }
+
+        const item = document.createElement("div");
+        item.classList.add("contacto-usuario");
+
+        const titulo = document.createElement("strong");
+        titulo.textContent = `${nuevoContacto.nombre} - ${nuevoContacto.correo}`;
+
+        const telParrafo = document.createElement("p");
+        telParrafo.textContent = `Teléfono: ${nuevoContacto.numero}`;
+
+        const mensaje = document.createElement("p");
+        mensaje.classList.add("contacto-mensaje");
+        mensaje.textContent = nuevoContacto.mensaje;
+
+        item.appendChild(titulo);
+        item.appendChild(telParrafo);
+        item.appendChild(mensaje);
+
+        listaContactos.appendChild(item);
+
+        let estadoMensaje = document.getElementById("mensaje-estado");
+        if (!estadoMensaje) {
+            estadoMensaje = document.createElement("p");
+            estadoMensaje.id = "mensaje-estado";
+            formularioContacto.parentNode.insertBefore(estadoMensaje, formularioContacto);
+        }
+
+        estadoMensaje.textContent = `Gracias por escribirnos, ${nuevoContacto.nombre}, nos pondremos en contacto pronto.`;
+        estadoMensaje.style.color = "green";
+        estadoMensaje.style.fontFamily = "sans-serif";
+        estadoMensaje.style.marginTop = "15px";
+
+        formularioContacto.reset();
+    });
+  }
 }
