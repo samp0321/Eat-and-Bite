@@ -662,6 +662,23 @@ input[type="radio"] {
    SECCION PRODUCTOS
 ========================= */
 
+.filtros {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.filtros select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #1e1e1e;
+  color: #fff;
+  border: 1px solid #1fa463;
+  cursor: pointer;
+}
+
 .productos-seccion {
     padding: 60px 10%;
     text-align: center;
