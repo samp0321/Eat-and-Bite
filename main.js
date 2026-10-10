@@ -310,15 +310,51 @@ if (telefono) {
 }
 
 // botones  de contacto html
-const botonEnviar = document.querySelector(".btn-submit");
-if (botonEnviar) {
-    botonEnviar.addEventListener("click", () => alert("Mensaje enviado correctamente"));
+const formularioContacto = document.querySelector(".contact-form");
+
+if (formularioContacto) {
+    formularioContacto.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const nombre = formularioContacto.querySelector("#nombre").value.trim() || "cliente";
+        const telefono = formularioContacto.querySelector("#telefono").value.trim();
+        const correo = formularioContacto.querySelector("#Correo").value.trim();
+        const mensajeTexto = formularioContacto.querySelector("#Mensaje").value.trim();
+        const mensaje = document.getElementById("mensaje-contacto");
+
+        if (mensaje) {
+            mensaje.innerHTML = `<p class="mensaje-contacto-titulo">Gracias por su comentario ${nombre}, agradecemos su mensaje.</p>`;
+            mensaje.style.display = "block";
+        }
+
+        let listaContactos = document.getElementById("lista-contactos");
+        if (!listaContactos) {
+            listaContactos = document.createElement("div");
+            listaContactos.id = "lista-contactos";
+            formularioContacto.parentNode.appendChild(listaContactos);
+        }
+
+        const item = document.createElement("div");
+        item.classList.add("mensaje-contacto-card");
+        item.innerHTML = `
+            <div class="mensaje-contacto-header">
+                <strong>${nombre}</strong>
+                <span> - Mensaje de contacto</span>
+            </div>
+            <p class="mensaje-contacto-cuerpo"><strong>Teléfono:</strong> ${telefono || "No registrado"}</p>
+            <p class="mensaje-contacto-cuerpo"><strong>Correo:</strong> ${correo || "No registrado"}</p>
+            <p class="mensaje-contacto-cuerpo"><strong>Mensaje:</strong> ${mensajeTexto || "Gracias por escribirnos."}</p>
+        `;
+        listaContactos.appendChild(item);
+
+        formularioContacto.reset();
+    });
 }
 
 const botonEliminar = document.querySelector(".btn-reset");
 if (botonEliminar) {
     botonEliminar.addEventListener("click", (event) => {
-        if (!confirm("¿Seguro  limpiadesear el formulario?")) {
+        if (!confirm("¿Seguro que deseas limpiar el formulario?")) {
             event.preventDefault();
         }
     });
@@ -427,62 +463,3 @@ if (formulario) {
 ];
 }
 
-//apartado contacto
-const formularioContacto = document.querySelector(".contact-form");
-if (formularioContacto) {
-    formularioContacto.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        const nombre = document.getElementById("nombre").value.trim();
-        const numero = document.getElementById("telefono").value.trim();
-        const correo = document.getElementById("Correo").value.trim();
-        const mensajeTExto = document.getElementById("Mensaje").value.trim();
-
-        const nuevoContacto = {
-            nombre: nombre,
-            numero: numero,
-            correo: correo,
-            mensaje: mensajeTExto
-        };
-
-        let listaContactos = document.getElementById("lista-contactos");
-        if (!listaContactos) {
-            listaContactos = document.createElement("div");
-            listaContactos.id = "lista-contactos";
-            formularioContacto.parentNode.appendChild(listaContactos);
-        }
-
-        const item = document.createElement("div");
-        item.classList.add("contacto-usuario");
-
-        const titulo = document.createElement("strong");
-        titulo.textContent = `${nuevoContacto.nombre} - ${nuevoContacto.correo}`;
-
-        const telParrafo = document.createElement("p");
-        telParrafo.textContent = `Teléfono: ${nuevoContacto.numero}`;
-
-        const mensaje = document.createElement("p");
-        mensaje.classList.add("contacto-mensaje");
-        mensaje.textContent = nuevoContacto.mensaje;
-
-        item.appendChild(titulo);
-        item.appendChild(telParrafo);
-        item.appendChild(mensaje);
-
-        listaContactos.appendChild(item);
-
-        let estadoMensaje = document.getElementById("mensaje-estado");
-        if (!estadoMensaje) {
-            estadoMensaje = document.createElement("p");
-            estadoMensaje.id = "mensaje-estado";
-            formularioContacto.parentNode.insertBefore(estadoMensaje, formularioContacto);
-        }
-
-        estadoMensaje.textContent = `Gracias por escribirnos, ${nuevoContacto.nombre}, nos pondremos en contacto pronto.`;
-        estadoMensaje.style.color = "green";
-        estadoMensaje.style.fontFamily = "sans-serif";
-        estadoMensaje.style.marginTop = "15px";
-
-        formularioContacto.reset();
-    });
-}

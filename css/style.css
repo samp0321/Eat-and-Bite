@@ -410,19 +410,27 @@ body {
 /*formulario-contactos*/
 #contacto {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding: 60px 20px;
     background-color: #f9f9f9;
     font-family: Arial, sans-serif;
 }
 
 .form-container {
-    width: 50%;
+    width: 100%;
+    max-width: 760px;
     background-color: #ffffff;
     padding: 35px;
     border: 2px solid #00a896;
     border-radius: 15px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#lista-contactos {
+    width: 100%;
+    max-width: 960px;
+    margin-top: 20px;
 }
 
 h2 {
@@ -453,6 +461,68 @@ input, textarea {
 textarea {
     height: 120px;
     resize: none;
+}
+
+.mensaje-contacto {
+    display: block;
+    width: 100%;
+    max-width: 960px;
+    margin-top: 15px;
+    color: #1d9d73;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.mensaje-contacto-titulo {
+    color: #1d9d73;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+}
+
+.mensaje-contacto-card {
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(29, 157, 115, 0.4);
+    border-radius: 16px;
+    padding: 18px 20px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+}
+
+.mensaje-contacto-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1d9d73;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.mensaje-contacto-header span {
+    color: #1d9d73;
+    font-weight: 600;
+}
+
+.mensaje-contacto-cuerpo {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
+    color: #2f2f2f;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+#mensaje-estado {
+    display: block;
+    width: 100%;
+    min-height: 20px;
+    margin-top: 15px;
+    color: #1d9d73;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
 }
 
 .rating-group {
