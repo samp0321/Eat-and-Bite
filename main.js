@@ -232,18 +232,33 @@ function renderProductos(lista, orden = 'menor') {
   });
 }
 
+// Quita mayúsculas y tildes para comparar: "Salmón" -> "salmon"
+function normalizarTexto(texto) {
+  return texto.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+}
+
+// Limpia el buscador y vuelve a pintar todos los productos con el orden elegido
+function mostrarTodos() {
+  inputBuscar.value = '';
+  renderProductos(productos, filtroPrecio.value);
+  mensajeProductos.textContent = '';
+}
+
 // Busca con filter los productos cuyo nombre contiene el texto escrito
 function buscarProductos() {
-  const texto = inputBuscar.value.trim().toLowerCase();
-  const encontrados = productos.filter(p => p.nombre.toLowerCase().includes(texto));
+  const textoEscrito = inputBuscar.value.trim();
+
+  if (textoEscrito === '') {
+    mostrarTodos();
+    mensajeProductos.textContent = 'Escribe el nombre de un producto para buscar.';
+    return;
+  }
+
+  const texto = normalizarTexto(textoEscrito);
+  const encontrados = productos.filter(p => normalizarTexto(p.nombre).includes(texto));
 
   renderProductos(encontrados, filtroPrecio.value);
-
-  if (texto === '') {
-    mensajeProductos.textContent = '';
-  } else {
-    mensajeProductos.textContent = `Se encontraron ${encontrados.length} producto(s) para "${inputBuscar.value.trim()}"`;
-  }
+  mensajeProductos.textContent = `Se encontraron ${encontrados.length} producto(s) para "${textoEscrito}"`;
 }
 
 // Agrega con push un producto nuevo al arreglo y lo muestra en la lista
@@ -283,13 +298,21 @@ function guardarProducto() {
 if (contenedor && filtroPrecio) {
   renderProductos(productos, 'menor');
 
-  filtroPrecio.addEventListener('change', buscarProductos);
+  // al cambiar el orden se muestran todos los productos ordenados, no solo los buscados
+  filtroPrecio.addEventListener('change', mostrarTodos);
   btnBuscar.addEventListener('click', buscarProductos);
+
+  // buscar también con la tecla Enter
+  inputBuscar.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      buscarProductos();
+    }
+  });
 
   // si el usuario borra todo el texto del buscador, vuelve la lista completa
   inputBuscar.addEventListener('input', () => {
     if (inputBuscar.value.trim() === '') {
-      buscarProductos();
+      mostrarTodos();
     }
   });
   btnGuardarProducto.addEventListener('click', guardarProducto);
