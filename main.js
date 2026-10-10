@@ -425,17 +425,18 @@ if (formulario) {
     fecha: "2026-04-06"
   }
 ];
+}
+
 //apartado contacto
-document.addEventListener("DOMContentLoaded", function() {
 const formularioContacto = document.querySelector(".contact-form");
 if (formularioContacto) {
     formularioContacto.addEventListener("submit", function(event) {
-        event.preventDefault(); 
+        event.preventDefault();
 
         const nombre = document.getElementById("nombre").value.trim();
-        const numero = document.getElementById("numero").value.trim();
-        const correo = document.getElementById("correo").value.trim();
-        const mensajeTExto = document.getElementById("mensaje").value.trim();
+        const numero = document.getElementById("telefono").value.trim();
+        const correo = document.getElementById("Correo").value.trim();
+        const mensajeTExto = document.getElementById("Mensaje").value.trim();
 
         const nuevoContacto = {
             nombre: nombre,
@@ -484,5 +485,4 @@ if (formularioContacto) {
 
         formularioContacto.reset();
     });
-  }
 }
