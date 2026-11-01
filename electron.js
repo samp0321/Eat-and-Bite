@@ -2,27 +2,27 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
 function createWindow() {
-  const mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 800,
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false
-    }
-  });
+    console.log('1. Creando ventana...');
 
-  // Carga tu archivo index.html principal
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+    const mainWindow = new BrowserWindow({
+        width: 1200,
+        height: 800
+    });
+
+    console.log('2. Ventana creada...');
+
+    mainWindow.loadFile(path.join(__dirname, 'index.html'));
+
+    console.log('3. Intentando cargar index.html...');
 }
 
 app.whenReady().then(() => {
-  createWindow();
-
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  });
+    console.log('4. Electron está listo...');
+    createWindow();
 });
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
 });

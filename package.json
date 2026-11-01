@@ -2,11 +2,10 @@
   "name": "eat-and-bite-main",
   "version": "1.0.0",
   "description": "Eat and Bite es una pagina de comida saludable, la cual se basa en ofrece productos con otros provedores que ofrecen y envian la comida con los repartidores.",
-  "main": "main.js",
+  "main": "electron.js",
   "scripts": {
-    "start": "electron .js",
+    "start": ".\\node_modules\\.bin\\electron.cmd .",
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
   "repository": {
     "type": "git",

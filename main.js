@@ -508,4 +508,64 @@ if (formularioContacto) {
 
         formularioContacto.reset();
     });
+
+    // enlazando mockapi con productos usando async 
+    let productos = [];
+
+async function crearProducto() {
+  try {
+    
+    let resultados = await fetch('https://6adcddd4fa5e73d4ab2dc4e3.mockapi.io/api/v1/productos');
+    
+    
+    if (!resultados.ok) {
+      throw new Error('Ocurrió un error al consultar la API');
+    }
+   
+    productos = await resultados.json();
+    console.log('Productos cargados con éxito: ', productos);
+
+  } catch (error) {
+    console.log('Hubo un problema:', error);
+  }
 }
+crearProducto();
+
+// creacion de api de contacto 
+
+let contactos= [];
+ async function crearContacto(){
+  try{
+let consultarContacto = await fetch ('https://6adcddd4fa5e73d4ab2dc4e3.mockapi.io/api/v1/contacto')
+ if(!consultarContacto.ok){
+  throw new Error ('error al consultar contacto',contacto)
+  }
+ contactos = await consultarContacto.json();
+ console.log('contactos cargos exitosamente, contactos');
+ }catch (error){
+  console.log('error al cargar la información de contacto')
+ }
+}
+crearContacto();
+
+// filtrar reseñas usando mockapi 
+// Variable global para almacenar las reseñas
+let reseñas = [];
+
+async function LeeReseñas() {
+  try {
+    
+    let leerReseña = await fetch('https://6adcddd4fa5e73d4ab2dc4e3.mockapi.io/api/v1/resenas');
+    
+    if (!leerReseña.ok) {
+      throw new Error('Error al leer reseñas');
+    }
+    reseñas = await leerReseña.json();
+    console.log('Reseñas cargadas exitosamente: ', reseñas);
+
+  } catch (error) {
+   
+    console.log('Error al cargar reseñas de productos:', error);
+  }
+}
+LeeReseñas();
