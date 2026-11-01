@@ -333,15 +333,51 @@ if (telefono) {
 }
 
 // botones  de contacto html
-const botonEnviar = document.querySelector(".btn-submit");
-if (botonEnviar) {
-    botonEnviar.addEventListener("click", () => alert("Mensaje enviado correctamente"));
+const formularioContacto = document.querySelector(".contact-form");
+
+if (formularioContacto) {
+    formularioContacto.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const nombre = formularioContacto.querySelector("#nombre").value.trim() || "cliente";
+        const telefono = formularioContacto.querySelector("#telefono").value.trim();
+        const correo = formularioContacto.querySelector("#Correo").value.trim();
+        const mensajeTexto = formularioContacto.querySelector("#Mensaje").value.trim();
+        const mensaje = document.getElementById("mensaje-contacto");
+
+        if (mensaje) {
+            mensaje.innerHTML = `<p class="mensaje-contacto-titulo">Gracias por su comentario ${nombre}, agradecemos su mensaje.</p>`;
+            mensaje.style.display = "block";
+        }
+
+        let listaContactos = document.getElementById("lista-contactos");
+        if (!listaContactos) {
+            listaContactos = document.createElement("div");
+            listaContactos.id = "lista-contactos";
+            formularioContacto.parentNode.appendChild(listaContactos);
+        }
+
+        const item = document.createElement("div");
+        item.classList.add("mensaje-contacto-card");
+        item.innerHTML = `
+            <div class="mensaje-contacto-header">
+                <strong>${nombre}</strong>
+                <span> - Mensaje de contacto</span>
+            </div>
+            <p class="mensaje-contacto-cuerpo"><strong>Teléfono:</strong> ${telefono || "No registrado"}</p>
+            <p class="mensaje-contacto-cuerpo"><strong>Correo:</strong> ${correo || "No registrado"}</p>
+            <p class="mensaje-contacto-cuerpo"><strong>Mensaje:</strong> ${mensajeTexto || "Gracias por escribirnos."}</p>
+        `;
+        listaContactos.appendChild(item);
+
+        formularioContacto.reset();
+    });
 }
 
 const botonEliminar = document.querySelector(".btn-reset");
 if (botonEliminar) {
     botonEliminar.addEventListener("click", (event) => {
-        if (!confirm("¿Seguro  limpiadesear el formulario?")) {
+        if (!confirm("¿Seguro que deseas limpiar el formulario?")) {
             event.preventDefault();
         }
     });
