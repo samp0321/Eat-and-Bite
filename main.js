@@ -14,7 +14,7 @@ const productos = [
   {
     id: 1,
     nombre: 'Ensalada Fit',
-    precio: 22000,
+    precio: 22000, 
     rating: 4.8,
     imagen: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500',
     descripcion: 'Mix de hojas verdes con proteína vegetal.',
