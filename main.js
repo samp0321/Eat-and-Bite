@@ -333,7 +333,7 @@ if (telefono) {
 }
 
 // botones  de contacto html
-const formularioContacto = document.querySelector(".contact-form");
+const formularioContacto1 = document.querySelector(".contact-form");
 
 if (formularioContacto) {
     formularioContacto.addEventListener("submit", function(event) {
@@ -604,4 +604,6 @@ async function LeeReseñas() {
     console.log('Error al cargar reseñas de productos:', error);
   }
 }
+}
 LeeReseñas();
+
