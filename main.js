@@ -332,48 +332,6 @@ if (telefono) {
     comentario.textContent = "Este no es un mensaje de prueba se está comunicando con servicio al cliente";
 }
 
-// botones  de contacto html
-const formularioContacto1 = document.querySelector(".contact-form");
-
-if (formularioContacto) {
-    formularioContacto.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        const nombre = formularioContacto.querySelector("#nombre").value.trim() || "cliente";
-        const telefono = formularioContacto.querySelector("#telefono").value.trim();
-        const correo = formularioContacto.querySelector("#Correo").value.trim();
-        const mensajeTexto = formularioContacto.querySelector("#Mensaje").value.trim();
-        const mensaje = document.getElementById("mensaje-contacto");
-
-        if (mensaje) {
-            mensaje.innerHTML = `<p class="mensaje-contacto-titulo">Gracias por su comentario ${nombre}, agradecemos su mensaje.</p>`;
-            mensaje.style.display = "block";
-        }
-
-        let listaContactos = document.getElementById("lista-contactos");
-        if (!listaContactos) {
-            listaContactos = document.createElement("div");
-            listaContactos.id = "lista-contactos";
-            formularioContacto.parentNode.appendChild(listaContactos);
-        }
-
-        const item = document.createElement("div");
-        item.classList.add("mensaje-contacto-card");
-        item.innerHTML = `
-            <div class="mensaje-contacto-header">
-                <strong>${nombre}</strong>
-                <span> - Mensaje de contacto</span>
-            </div>
-            <p class="mensaje-contacto-cuerpo"><strong>Teléfono:</strong> ${telefono || "No registrado"}</p>
-            <p class="mensaje-contacto-cuerpo"><strong>Correo:</strong> ${correo || "No registrado"}</p>
-            <p class="mensaje-contacto-cuerpo"><strong>Mensaje:</strong> ${mensajeTexto || "Gracias por escribirnos."}</p>
-        `;
-        listaContactos.appendChild(item);
-
-        formularioContacto.reset();
-    });
-}
-
 const botonEliminar = document.querySelector(".btn-reset");
 if (botonEliminar) {
     botonEliminar.addEventListener("click", (event) => {
@@ -546,64 +504,174 @@ if (formularioContacto) {
     });
 
     // enlazando mockapi con productos usando async 
-    let productos = [];
+}
+
+console.log('[GCO-SYSTEM v1.0 ONLINE]');
+
+// funcion para mostrar mensajes de carga o de error en el DOM
+function mostrarMensaje(gco_contenedor, gco_texto, gco_color) {
+  let gco_mensaje = document.createElement('p');
+  gco_mensaje.textContent = gco_texto;
+  gco_mensaje.style.color = gco_color;
+  gco_mensaje.style.fontFamily = 'sans-serif';
+  gco_mensaje.style.textAlign = 'center';
+  gco_contenedor.appendChild(gco_mensaje);
+  return gco_mensaje;
+}
+
+    let gco_canastaFrutas = [];
 
 async function crearProducto() {
+  // mensaje de carga mientras se piden los productos
+  contenedor.innerHTML = '';
+  let gco_mensajeCarga = mostrarMensaje(contenedor, 'Solicitando la información de los productos...', 'gray');
+
   try {
-    
-    let resultados = await fetch('https://6adcddd4fa5e73d4ab2dc4e3.mockapi.io/api/v1/productos');
-    
-    
-    if (!resultados.ok) {
+
+    let gco_resultados = await fetch('https://6adcddd4fa5e73d4ab2dc4e3.mockapi.io/api/v1/Productos');
+
+
+    if (!gco_resultados.ok) {
       throw new Error('Ocurrió un error al consultar la API');
     }
-   
-    productos = await resultados.json();
-    console.log('Productos cargados con éxito: ', productos);
 
-  } catch (error) {
-    console.log('Hubo un problema:', error);
+    gco_canastaFrutas = await gco_resultados.json();
+    console.log('Productos cargados con éxito: ', gco_canastaFrutas);
+
+    // se borra el mensaje de carga
+    gco_mensajeCarga.remove();
+
+    // se pasan los productos de la api al arreglo productos para que buscar y ordenar sigan funcionando
+    productos.length = 0;
+    gco_canastaFrutas.forEach(gco_manzana => {
+      gco_manzana.precio = Number(gco_manzana.precio);
+      gco_manzana.rating = Number(gco_manzana.rating);
+      productos.push(gco_manzana);
+    });
+    renderProductos(productos, filtroPrecio.value);
+
+  } catch (gco_error) {
+    console.log('Hubo un problema:', gco_error);
+    contenedor.innerHTML = '';
+    mostrarMensaje(contenedor, 'No se pudieron cargar los datos. Intenta más tarde.', 'red');
   }
 }
-crearProducto();
+// solo se cargan los productos en productos.html
+if (contenedor) {
+  crearProducto();
+}
 
 // creacion de api de contacto 
 
-let contactos= [];
+let gco_racimoUvas= [];
+let gco_listaContactos = document.getElementById('lista-contactos');
+
  async function crearContacto(){
+  // mensaje de carga mientras se piden los contactos
+  let gco_mensajeCarga = mostrarMensaje(gco_listaContactos, 'Solicitando los mensajes de contacto...', 'gray');
+
   try{
-let consultarContacto = await fetch ('https://6adcddd4fa5e73d4ab2dc4e3.mockapi.io/api/v1/contacto')
- if(!consultarContacto.ok){
-  throw new Error ('error al consultar contacto',contacto)
+let gco_consultarContacto = await fetch ('https://6adcddd4fa5e73d4ab2dc4e3.mockapi.io/api/v1/Productos/1/Contacto')
+ if(!gco_consultarContacto.ok){
+  throw new Error ('error al consultar contacto')
   }
- contactos = await consultarContacto.json();
- console.log('contactos cargos exitosamente, contactos');
- }catch (error){
-  console.log('error al cargar la información de contacto')
+ gco_racimoUvas = await gco_consultarContacto.json();
+ console.log('contactos cargados exitosamente', gco_racimoUvas);
+
+ // se borra el mensaje de carga
+ gco_mensajeCarga.remove();
+
+ if (gco_racimoUvas.length === 0) {
+  mostrarMensaje(gco_listaContactos, 'Aún no hay mensajes de contacto guardados.', 'gray');
+ }
+
+ // se crea una tarjeta por cada contacto
+ gco_racimoUvas.forEach(gco_uva => {
+  let gco_tarjeta = document.createElement('div');
+  gco_tarjeta.classList.add('mensaje-contacto-card');
+
+  let gco_nombre = document.createElement('strong');
+  gco_nombre.textContent = gco_uva.nombre;
+
+  let gco_correo = document.createElement('p');
+  gco_correo.classList.add('mensaje-contacto-cuerpo');
+  gco_correo.textContent = 'Correo: ' + gco_uva.correo;
+
+  let gco_mensaje = document.createElement('p');
+  gco_mensaje.classList.add('mensaje-contacto-cuerpo');
+  gco_mensaje.textContent = gco_uva.mensaje;
+
+  gco_tarjeta.appendChild(gco_nombre);
+  gco_tarjeta.appendChild(gco_correo);
+  gco_tarjeta.appendChild(gco_mensaje);
+  gco_listaContactos.appendChild(gco_tarjeta);
+ });
+
+ }catch (gco_error){
+  console.log('error al cargar la información de contacto', gco_error)
+  gco_mensajeCarga.remove();
+  mostrarMensaje(gco_listaContactos, 'No se pudieron cargar los datos. Intenta más tarde.', 'red');
  }
 }
-crearContacto();
+// solo se cargan los contactos en contacto.html
+if (gco_listaContactos) {
+  crearContacto();
+}
 
 // filtrar reseñas usando mockapi 
 // Variable global para almacenar las reseñas
-let reseñas = [];
+let gco_bandejaPeras = [];
+let gco_listaResenas = document.getElementById('lista-resenas');
 
 async function LeeReseñas() {
+  // mensaje de carga mientras se piden las reseñas
+  let gco_mensajeCarga = mostrarMensaje(gco_listaResenas, 'Solicitando las reseñas...', 'gray');
+
   try {
-    
-    let leerReseña = await fetch('https://6adcddd4fa5e73d4ab2dc4e3.mockapi.io/api/v1/resenas');
-    
-    if (!leerReseña.ok) {
+
+    let gco_leerReseña = await fetch('https://6adcddd4fa5e73d4ab2dc4e3.mockapi.io/api/v1/resenas');
+
+    if (!gco_leerReseña.ok) {
       throw new Error('Error al leer reseñas');
     }
-    reseñas = await leerReseña.json();
-    console.log('Reseñas cargadas exitosamente: ', reseñas);
+    gco_bandejaPeras = await gco_leerReseña.json();
+    console.log('Reseñas cargadas exitosamente: ', gco_bandejaPeras);
 
-  } catch (error) {
-   
-    console.log('Error al cargar reseñas de productos:', error);
+    // se borra el mensaje de carga
+    gco_mensajeCarga.remove();
+
+    // se crea una tarjeta por cada reseña
+    gco_bandejaPeras.forEach(gco_pera => {
+      let gco_item = document.createElement('div');
+      gco_item.classList.add('resena-usuario');
+
+      let gco_titulo = document.createElement('strong');
+      gco_titulo.textContent = `${gco_pera.autor} - ${gco_pera.producto}`;
+
+      let gco_estrellas = document.createElement('span');
+      gco_estrellas.classList.add('resena-estrellas');
+      gco_estrellas.textContent = '★'.repeat(gco_pera.estrellas);
+
+      let gco_comentario = document.createElement('p');
+      gco_comentario.textContent = gco_pera.comentario;
+
+      gco_item.appendChild(gco_titulo);
+      gco_item.appendChild(gco_estrellas);
+      gco_item.appendChild(gco_comentario);
+      gco_listaResenas.appendChild(gco_item);
+    });
+
+  } catch (gco_error) {
+
+    console.log('Error al cargar reseñas de productos:', gco_error);
+    gco_mensajeCarga.remove();
+    mostrarMensaje(gco_listaResenas, 'No se pudieron cargar los datos. Intenta más tarde.', 'red');
   }
 }
+// solo se cargan las reseñas en reseña.html
+if (gco_listaResenas) {
+  LeeReseñas();
 }
-LeeReseñas();
+
+
 
