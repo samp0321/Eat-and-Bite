@@ -627,7 +627,7 @@ async function LeeReseñas() {
 
   try {
 
-    let leerReseña = await fetch('https://6adcddd4fa5e73d4ab2dc4e3.mockapi.io/api/v1/resenas');
+    let leerReseña = await fetch('https://6ae60fcf877d34ccafc2a57f.mockapi.io/api/v1/:endpoint');
 
     if (!leerReseña.ok) {
       throw new Error('Error al leer reseñas');
