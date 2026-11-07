@@ -560,7 +560,7 @@ if (contenedor) {
 }
 
 // creacion de api de contacto 
-
+/*
 let contactos= [];
 let listaContactos = document.getElementById('lista-contactos');
 
@@ -615,7 +615,7 @@ let consultarContacto = await fetch ('https://6adcddd4fa5e73d4ab2dc4e3.mockapi.i
 if (listaContactos) {
   crearContacto();
 }
-
+*/
 // filtrar reseñas usando mockapi 
 // Variable global para almacenar las reseñas
 let reseñas = [];
