@@ -671,5 +671,72 @@ if (listaResenas) {
   LeeReseñas();
 }
 
+let galeria = [];
+let contenedorGaleria = document.querySelector('.galeria-container');
+
+function crearCardGaleria(foto) {
+  let card = document.createElement('div');
+  card.classList.add('menu-card');
+
+  let imagen = document.createElement('img');
+  imagen.src = foto.imagen;
+  imagen.alt = foto.nombre;
+
+  let info = document.createElement('div');
+  info.classList.add('menu-info');
+
+  let titulo = document.createElement('h3');
+  titulo.textContent = foto.nombre;
+
+  let descripcion = document.createElement('p');
+  descripcion.textContent = foto.descripcion;
+
+  info.appendChild(titulo);
+  info.appendChild(descripcion);
+  card.appendChild(imagen);
+  card.appendChild(info);
+
+  return card;
+}
+
+async function cargarGaleria() {
+
+  let mensajeCarga = document.createElement('p');
+  mensajeCarga.textContent = 'Solicitando la galería de imágenes...';
+  mensajeCarga.style.color = 'gray';
+  mensajeCarga.style.fontFamily = 'sans-serif';
+  mensajeCarga.style.textAlign = 'center';
+  contenedorGaleria.parentNode.insertBefore(mensajeCarga, contenedorGaleria);
+
+  try {
+    let respuesta = await fetch('https://6aef4830b9925b27ce16c968.mockapi.io/api/v2/galeria');
+
+    if (!respuesta.ok) {
+      throw new Error('Error al cargar la galería');
+    }
+
+    galeria = await respuesta.json();
+    console.log('Galería cargada exitosamente: ', galeria);
+
+    mensajeCarga.remove();
+
+    // si la api no trae imágenes se dejan las del HTML
+    if (galeria.length === 0) {
+      return;
+    }
+
+    contenedorGaleria.innerHTML = '';
+    galeria.forEach(foto => {
+      contenedorGaleria.appendChild(crearCardGaleria(foto));
+    });
+
+  } catch (error) {
+    console.log('No se pudo cargar la galería desde la API, se muestran las imágenes locales:', error);
+    mensajeCarga.remove();
+  }
+}
+if (contenedorGaleria) {
+  cargarGaleria();
+}
 
 
