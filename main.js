@@ -618,58 +618,40 @@ if (listaContactos) {
 */
 // filtrar reseñas usando mockapi 
 // Variable global para almacenar las reseñas
-let reseñas = [];
-let listaResenas = document.getElementById('lista-resenas');
+reseñas.forEach(reseña => {
 
-async function LeeReseñas() {
-  // mensaje de carga mientras se piden las reseñas
-  let mensajeCarga = mostrarMensaje(listaResenas, 'Solicitando las reseñas...', 'gray');
-
-  try {
-
-    let leerReseña = await fetch('https://6ae60fcf877d34ccafc2a57f.mockapi.io/api/v1/:endpoint');
-
-    if (!leerReseña.ok) {
-      throw new Error('Error al leer reseñas');
-    }
-    reseñas = await leerReseña.json();
-    console.log('Reseñas cargadas exitosamente: ', reseñas);
-
-    // se borra el mensaje de carga
-    mensajeCarga.remove();
-
-    // se crea una tarjeta por cada reseña
-    reseñas.forEach(reseña => {
       let item = document.createElement('div');
       item.classList.add('resena-usuario');
 
-      let titulo = document.createElement('strong');
-      titulo.textContent = `${reseña.autor} - ${reseña.producto}`;
+      // 1. Usamos 'avatar' tal como lo tienes en el Schema de MockAPI
+      let imgProducto = document.createElement('img');
+      imgProducto.src = reseña.avatar || 'https://via.placeholder.com/150';
+      imgProducto.alt = reseña.producto;
+      imgProducto.classList.add('resena-imagen');
 
-      let estrellas = document.createElement('span');
-      estrellas.classList.add('resena-estrellas');
-      estrellas.textContent = '★'.repeat(reseña.estrellas);
+      imgProducto.onerror = function() {
+        this.style.display = 'none';
+      };
+
+      let titulo = document.createElement('strong');
+      titulo.textContent = `${reseña.name} - ${reseña.producto}`;
+
+      let calificacion = document.createElement('span');
+      calificacion.classList.add('resena-calificacion');
+      // 2. Usamos 'calificaciones' (con 's')
+      let numeroEstrellas = Number(reseña.calificaciones) || 5;
+      calificacion.textContent = '★'.repeat(numeroEstrellas);
 
       let comentario = document.createElement('p');
       comentario.textContent = reseña.comentario;
 
+      item.appendChild(imgProducto);
       item.appendChild(titulo);
-      item.appendChild(estrellas);
+      item.appendChild(calificacion);
       item.appendChild(comentario);
+      
       listaResenas.appendChild(item);
     });
-
-  } catch (error) {
-
-    console.log('Error al cargar reseñas de productos:', error);
-    mensajeCarga.remove();
-    mostrarMensaje(listaResenas, 'No se pudieron cargar los datos. Intenta más tarde.', 'red');
-  }
-}
-// solo se cargan las reseñas en reseña.html
-if (listaResenas) {
-  LeeReseñas();
-}
 
 let galeria = [];
 let contenedorGaleria = document.querySelector('.galeria-container');
