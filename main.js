@@ -129,7 +129,7 @@ const productos = [
     detalles: 'Omega-3 puro, delicioso y sofisticado.'
   }
 ];
-
+ 
 
 // Crea las estrellas como elementos: 4.6 -> ★★★★★, 4.4 -> ★★★★☆
 function crearEstrellas(rating) {
@@ -565,7 +565,7 @@ let contactos= [];
 let listaContactos = document.getElementById('lista-contactos');
 
  async function crearContacto(){
-  // mensaje de carga mientras se piden los contactos
+ 
   let mensajeCarga = mostrarMensaje(listaContactos, 'Solicitando los mensajes de contacto...', 'gray');
 
   try{
@@ -576,7 +576,6 @@ let consultarContacto = await fetch ('https://6adcddd4fa5e73d4ab2dc4e3.mockapi.i
  contactos = await consultarContacto.json();
  console.log('contactos cargados exitosamente', contactos);
 
- // se borra el mensaje de carga
  mensajeCarga.remove();
 
  if (contactos.length === 0) {
@@ -670,6 +669,3 @@ async function LeeReseñas() {
 if (listaResenas) {
   LeeReseñas();
 }
-
-
-
