@@ -619,101 +619,132 @@ if (listaContactos) {
 // filtrar reseñas usando mockapi 
 // Variable global para almacenar las reseñas
 let reseñas = [];
-let listaResenas = document.getElementById('lista-resenas');
+let listaResenas = document.getElementById('reseñas');
 
-async function LeeReseñas() {
-  // mensaje de carga mientras se piden las reseñas
+async function leerReseñas() {
+  listaResenas.innerHTML = '';
   let mensajeCarga = mostrarMensaje(listaResenas, 'Solicitando las reseñas...', 'gray');
 
   try {
-    let leerReseña = await fetch('https://6ae60fcf877d34ccafc2a57f.mockapi.io/api/v1/Resenas');
+    let respuesta = await fetch('https://6ae60fcf877d34ccafc2a57f.mockapi.io/api/v1/Resenas');
 
-    if (!leerReseña.ok) {
+    if (!respuesta.ok) {
       throw new Error('Error al leer reseñas');
     }
-
-    reseñas = await leerReseña.json();
-    console.log('Reseñas cargadas exitosamente: ', reseñas);
-
-    // se borra el mensaje de carga
+    
+    reseñas = await respuesta.json();
     mensajeCarga.remove();
+    listaResenas.innerHTML = '';
 
-    // se crea una tarjeta por cada reseña
-    reseñas.forEach(reseña => {
+    if (reseñas.length === 0) {
+      mostrarMensaje(listaResenas, 'Aún no hay reseñas guardadas.', 'gray');
+      return;
+    }
 
+    reseñas.forEach((reseña, index) => {
       let item = document.createElement('div');
       item.classList.add('resena-usuario');
 
-      // 1. Usamos 'avatar' tal como lo tienes en el Schema de MockAPI
+      // 1. Imagen del avatar / producto
       let imgProducto = document.createElement('img');
-      imgProducto.src = reseña.avatar || 'https://via.placeholder.com/150';
-      imgProducto.alt = reseña.producto;
+      
+      const imagenesLocales = [
+        'img/comida_saludable.jpg',
+        'img/plato-Pizza-Integral.png',
+        'img/plato-Sushi-Saludable.png',
+        'img/plato_Acai-Bowl.png',
+        'img/plato_Poke-Bowl.png',
+        'img/plato_Pollo-Parrilla.png',
+        'img/plato_Salmon-Mantequilla.png',
+        'img/plato_Tabla-Quesos-Gourmet.png',
+        'img/plato_Tacos-Verdura.png',
+        'img/bebida_Smoothie-Verde.png'
+      ];
+      const imagenRespaldo = imagenesLocales[index % imagenesLocales.length];
+      const avatar = typeof reseña.avatar === 'string' ? reseña.avatar.trim() : '';
+      
+      // Asigna el avatar de MockAPI o el respaldo si está vacío
+      imgProducto.src = avatar || imagenRespaldo;
+      imgProducto.alt = reseña.producto || 'Plato saludable';
       imgProducto.classList.add('resena-imagen');
 
+      // Si la URL externa falla, la reemplaza por una segura al instante
       imgProducto.onerror = function() {
-        this.style.display = 'none';
+        this.onerror = null;
+        this.src = imagenRespaldo;
       };
+
+      // 2. Contenedor para el texto
+      let contenidoTexto = document.createElement('div');
+      contenidoTexto.classList.add('resena-contenido');
 
       let titulo = document.createElement('strong');
       titulo.textContent = `${reseña.name} - ${reseña.producto}`;
 
       let calificacion = document.createElement('span');
       calificacion.classList.add('resena-calificacion');
-      // 2. Usamos 'calificaciones' (con 's')
-      let numeroEstrellas = Number(reseña.calificaciones) || 5;
-      calificacion.textContent = '★'.repeat(numeroEstrellas);
+      let numEstrellas = reseña.calificaciones ? 5 : 4;
+      calificacion.textContent = ' ★'.repeat(numEstrellas);
 
       let comentario = document.createElement('p');
       comentario.textContent = reseña.comentario;
 
+      // Agregamos los textos al contenedor de texto
+      contenidoTexto.appendChild(titulo);
+      contenidoTexto.appendChild(document.createElement('br'));
+      contenidoTexto.appendChild(calificacion);
+      contenidoTexto.appendChild(comentario);
+
+      // 3. Insertamos la imagen y el bloque de texto dentro de la tarjeta
       item.appendChild(imgProducto);
-      item.appendChild(titulo);
-      item.appendChild(calificacion);
-      item.appendChild(comentario);
+      item.appendChild(contenidoTexto);
       
       listaResenas.appendChild(item);
     });
 
   } catch (error) {
-    console.log('Error al cargar reseñas de productos:', error);
+    console.error('Error al cargar reseñas de productos:', error);
     mensajeCarga.remove();
     mostrarMensaje(listaResenas, 'No se pudieron cargar los datos. Intenta más tarde.', 'red');
   }
 }
-// solo se cargan las reseñas en reseña.html
+
 if (listaResenas) {
-  LeeReseñas();
+  leerReseñas();
 }
 
 let galeria = [];
-let contenedorGaleria = document.querySelector('.galeria-container');
 
 function crearCardGaleria(foto) {
-  let card = document.createElement('div');
+  const card = document.createElement('div');
   card.classList.add('menu-card');
 
-  let imagen = document.createElement('img');
-  imagen.src = foto.imagen;
-  imagen.alt = foto.nombre;
-
-  let info = document.createElement('div');
+  const imagen = document.createElement('img');
+  const imagenRespaldo = 'img/comida_saludable.jpg';
+  const urlImagen = typeof foto.imagen === 'string' ? foto.imagen.trim() : '';
+  const esLoremFlickr = /^https?:\/\/([^/]+\.)?loremflickr\.com(?:\/|$)/i.test(urlImagen);
+  imagen.src = urlImagen && !esLoremFlickr ? urlImagen : imagenRespaldo;
+  imagen.alt = foto.nombre || 'Comida saludable';
+  imagen.onerror = function () {
+    this.onerror = null;
+    this.src = imagenRespaldo;
+  };
+  const info = document.createElement('div');
   info.classList.add('menu-info');
 
-  let titulo = document.createElement('h3');
-  titulo.textContent = foto.nombre;
+  const titulo = document.createElement('h3');
+  titulo.textContent = foto.nombre || 'Plato saludable';
 
-  let descripcion = document.createElement('p');
-  descripcion.textContent = foto.descripcion;
+  const descripcion = document.createElement('p');
+  descripcion.textContent = foto.descripcion || '';
 
   info.appendChild(titulo);
   info.appendChild(descripcion);
   card.appendChild(imagen);
   card.appendChild(info);
-
   return card;
 }
-
-async function cargarGaleria() {
+async function cargarGaleria(contenedorGaleria) {
 
   let mensajeCarga = document.createElement('p');
   mensajeCarga.textContent = 'Solicitando la galería de imágenes...';
@@ -746,12 +777,12 @@ async function cargarGaleria() {
 
   } catch (error) {
     console.log('No se pudo cargar la galería desde la API, se muestran las imágenes locales:', error);
-    mensajeCarga.textContent = 'No se pudieron cargar los datos. Intenta más tarde.';
-    mensajeCarga.style.color = 'red';
+    mensajeCarga.remove();
   }
 }
-if (contenedorGaleria) {
-  cargarGaleria();
+const elementoGaleria = document.querySelector('.galeria-container');
+if (elementoGaleria) {
+  cargarGaleria(elementoGaleria);
 }
 
 
