@@ -19,11 +19,13 @@ npm start
 La aplicación se abre con Electron. También se puede abrir con Live Server en VS Code.
 
 ### Cómo consume la API hoy (MockAPI)
-Por ahora el backend se simula con **MockAPI**. La URL base es:
+Por ahora el backend se simula con **MockAPI**, repartido en tres proyectos:
 
-```
-https://6adcddd4fa5e73d4ab2dc4e3.mockapi.io/api/v1
-```
+| Recurso | URL base |
+|---|---|
+| Productos | `https://6adcddd4fa5e73d4ab2dc4e3.mockapi.io/api/v1` |
+| Reseñas | `https://6ae60fcf877d34ccafc2a57f.mockapi.io/api/v1` |
+| Galería | `https://6aef4830b9925b27ce16c968.mockapi.io/api/v2` |
 
 Al cargar cada página, `main.js` pide los datos con `fetch()` y `async/await`:
 
@@ -35,8 +37,10 @@ Al cargar cada página, `main.js` pide los datos con `fetch()` y `async/await`:
 | Página | Función en `main.js` | Endpoint de MockAPI | Dónde se muestran los datos |
 |---|---|---|---|
 | `productos.html` | `crearProducto()` | `GET /Productos` | `#productos-container` |
-| `contacto.html` | `crearContacto()` | `GET /Productos/1/Contacto` | `#lista-contactos` |
-| `reseña.html` | `LeeReseñas()` | `GET /resenas` | `#lista-resenas` |
+| `reseña.html` | `LeeReseñas()` | `GET /Resenas` | `#lista-resenas` |
+| `galeria.html` | `cargarGaleria()` | `GET /galeria` | `.galeria-container` |
+
+> `contacto.html` por ahora no consume API: el formulario agrega los mensajes al DOM localmente. La función `crearContacto()` está comentada en `main.js` hasta que exista el endpoint en el backend.
 
 ### Endpoints que esperamos del Backend (Spring Boot – Nivel 3)
 Para reemplazar MockAPI, el equipo de Backend debe exponer estos endpoints. Todos deben responder en JSON.
@@ -48,6 +52,7 @@ Para reemplazar MockAPI, el equipo de Backend debe exponer estos endpoints. Todo
 | POST | `/api/productos` | Guardar un producto nuevo |
 | GET | `/api/resenas` | Listar las reseñas en `reseña.html` |
 | POST | `/api/resenas` | Guardar una reseña nueva |
+| GET | `/api/galeria` | Listar las imágenes en `galeria.html` |
 | GET | `/api/contactos` | Listar los mensajes de contacto en `contacto.html` |
 | POST | `/api/contactos` | Guardar un mensaje del formulario de contacto |
 
@@ -59,8 +64,12 @@ Para reemplazar MockAPI, el equipo de Backend debe exponer estos endpoints. Todo
   "imagen": "https://...", "descripcion": "...", "detalles": "..." }
 
 // Reseña
-{ "id": 1, "autor": "Laura Gómez", "producto": "Salmón a la Mantequilla",
-  "comentario": "...", "estrellas": 5, "fecha": "2026-03-15" }
+{ "id": 1, "name": "Laura Gómez", "producto": "Salmón a la Mantequilla",
+  "comentario": "...", "calificaciones": 5, "avatar": "https://..." }
+
+// Imagen de galería
+{ "id": 1, "nombre": "Sopa de Lentejas", "descripcion": "...",
+  "imagen": "https://..." }
 
 // Contacto
 { "id": 1, "nombre": "Ana", "telefono": "3001234567",

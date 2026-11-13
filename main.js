@@ -618,7 +618,28 @@ if (listaContactos) {
 */
 // filtrar reseñas usando mockapi 
 // Variable global para almacenar las reseñas
-reseñas.forEach(reseña => {
+let reseñas = [];
+let listaResenas = document.getElementById('lista-resenas');
+
+async function LeeReseñas() {
+  // mensaje de carga mientras se piden las reseñas
+  let mensajeCarga = mostrarMensaje(listaResenas, 'Solicitando las reseñas...', 'gray');
+
+  try {
+    let leerReseña = await fetch('https://6ae60fcf877d34ccafc2a57f.mockapi.io/api/v1/Resenas');
+
+    if (!leerReseña.ok) {
+      throw new Error('Error al leer reseñas');
+    }
+
+    reseñas = await leerReseña.json();
+    console.log('Reseñas cargadas exitosamente: ', reseñas);
+
+    // se borra el mensaje de carga
+    mensajeCarga.remove();
+
+    // se crea una tarjeta por cada reseña
+    reseñas.forEach(reseña => {
 
       let item = document.createElement('div');
       item.classList.add('resena-usuario');
@@ -652,6 +673,17 @@ reseñas.forEach(reseña => {
       
       listaResenas.appendChild(item);
     });
+
+  } catch (error) {
+    console.log('Error al cargar reseñas de productos:', error);
+    mensajeCarga.remove();
+    mostrarMensaje(listaResenas, 'No se pudieron cargar los datos. Intenta más tarde.', 'red');
+  }
+}
+// solo se cargan las reseñas en reseña.html
+if (listaResenas) {
+  LeeReseñas();
+}
 
 let galeria = [];
 let contenedorGaleria = document.querySelector('.galeria-container');
@@ -714,7 +746,8 @@ async function cargarGaleria() {
 
   } catch (error) {
     console.log('No se pudo cargar la galería desde la API, se muestran las imágenes locales:', error);
-    mensajeCarga.remove();
+    mensajeCarga.textContent = 'No se pudieron cargar los datos. Intenta más tarde.';
+    mensajeCarga.style.color = 'red';
   }
 }
 if (contenedorGaleria) {
