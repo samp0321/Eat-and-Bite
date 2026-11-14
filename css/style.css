@@ -366,7 +366,8 @@ body {
 
 .contenedor-cartas {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 350px));
+    justify-content: center;
     gap: 30px;
     padding: 20px;
     max-width: 1200px;
@@ -617,7 +618,11 @@ textarea {
 /*reseñas enviadas por el usuario*/
 .resena-usuario {
     margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
     padding: 15px 20px;
+    box-sizing: border-box;
     border: 1px solid rgba(0, 168, 150, 0.15);
     border-left: 4px solid #00a896;
     border-radius: 10px;
