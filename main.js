@@ -192,7 +192,10 @@ function crearCard(producto) {
   });
 
   info.appendChild(titulo);
-  info.appendChild(crearEstrellas(producto.rating));
+  // solo se muestran estrellas si el producto tiene calificación
+  if (producto.rating > 0) {
+    info.appendChild(crearEstrellas(producto.rating));
+  }
   info.appendChild(descripcion);
   info.appendChild(detalles);
   info.appendChild(precio);
@@ -542,8 +545,10 @@ async function crearProducto() {
     // se pasan los productos de la api al arreglo productos para que buscar y ordenar sigan funcionando
     productos.length = 0;
     productosApi.forEach(producto => {
+      // la api usa "name", el resto del código usa "nombre"
+      producto.nombre = producto.nombre || producto.name;
       producto.precio = Number(producto.precio);
-      producto.rating = Number(producto.rating);
+      producto.rating = Number(producto.rating) || 0;
       productos.push(producto);
     });
     renderProductos(productos, filtroPrecio.value);
